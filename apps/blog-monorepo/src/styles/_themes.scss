@@ -1,0 +1,40 @@
+.light-theme {
+  --background-color: #ffffff;
+  --text-color: #000000;
+  --primary-color: #00d0ff;
+  --accent-color: #00154e;
+  --warn-color: #ff1f1f;
+}
+
+.dark-theme {
+  --background-color: #112950;
+  --text-color: #ffffff;
+  --primary-color: #01bfea;
+  --accent-color: #b3b9ca;
+  --warn-color: #cc1919;
+}
+
+/* Global Colors */
+
+$theme-white: #ffffff;
+$theme-light: #f8f8f8;
+$theme-dark: #112950;
+$theme-dark-80: #6680ac;
+$primary-main: #00d0ff;
+$primary-lighter: #b3f1ff;
+$primary-darker: #01bfea;
+$primary-99: #b3f1ff;
+$secondary-main: #ffffff;
+$accent-main: #00154e;
+$accent-lighter: #b3b9ca;
+$accent-darker: #000c35;
+$warn-main: #ff1f1f;
+$warn-lighter: #ffbcbc;
+$warn-darker: #cc1919;
+
+$dark-text: #393939;
+$dark-primary-text: rgba($dark-text, 0.87);
+$dark-accent-text: rgba($dark-primary-text, 0.54);
+$dark-disabled-text: rgba($dark-primary-text, 0.38);
+$dark-dividers: rgba($dark-primary-text, 0.12);
+$dark-focused: rgba($dark-primary-text, 0.12);

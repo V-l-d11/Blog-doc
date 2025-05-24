@@ -85,6 +85,10 @@ Supported languages:
 - `npx nx g @nrwl/angular:component ui-tooltip --standalone=false --module=shared.module.ts`
 - `npx nx g @nrwl/angular:component muddy-code-header-feature --standalone=false --module=muddy-code-feature-header.module.ts`
 
+## Delete Lib from workspace
+
+- `npx nx g @nx/workspace:remove ...`
+
 ## Config Angular Material lib on project
 
 - `npx nx g @angular/material:ng-add --project=project-name-example`
