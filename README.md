@@ -1,82 +1,122 @@
-# BlogMonorepo
+# Blog-documentation
 
-<a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
+- Documentation
+- [Nx Dev Tutorial](https://nx.dev/tutorials/integrated-repo-tutorial)
 
-✨ Your new, shiny [Nx workspace](https://nx.dev) is almost ready ✨.
+## Create Project
 
-[Learn more about this workspace setup and its capabilities](https://nx.dev/getting-started/tutorials/angular-monorepo-tutorial?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects) or run `npx nx graph` to visually explore what was created. Now, let's get you up to speed!
+- Create NxAngularWorkspace & Create first project [npx create-nx-workspace@latest ... --preset=angular]
 
-## Finish your CI setup
+## Requirements
 
-[Click here to finish setting up your workspace!](https://cloud.nx.app/connect/C6ldd3yOjj)
+- Node: v20.9,0
+- npm: 10.2.4
 
+## Diagram of the dependencies
 
-## Run tasks
+- Run `npx nx graph --watch --groupByFolder` to see a diagram of the dependencies of your projects.
+- Run `npx nx graph <project-name>`
 
-To run the dev server for your app, use:
+## Linter
 
-```sh
-npx nx serve blog-monorepo
+- Run `npm run linter-check` to run linting check for whole project. Code should be formatter with Prettier (if using VSC)
+- Run `npm install --global prettier` to install prettier plugin.
+
+## Generating new app
+
+Generate libraries and plug them into main app - `npx nx g @nrwl/angular:lib vou-shell --directory=vou --routing=true --lazy --parent-module=apps/vou/src/app/app.module.ts --tags=scope:vou,type:shell`
+
+- `npx nx g @nrwl/angular:lib vou-auth --directory=vou --tags=scope:vou,type:auth`
+- `npx nx g @nrwl/angular:lib vou-const --directory=vou --tags=scope:vou,type:const`
+- `npx nx g @nrwl/angular:lib vou-store --directory=vou --tags=scope:vou,type:store`
+- `npx nx g @nrwl/angular:lib vou-ui-header --directory=vou --tags=scope:vou,type:ui`
+- `npx nx g @nrwl/angular:lib vou-ui-app-version --directory=vou --tags=scope:vou,type:ui`
+- `npx nx g @nrwl/angular:lib vou-ui-sidenav --directory=vou --tags=scope:vou,type:ui`
+- `npx nx g @nrwl/angular:lib vou-utils --directory=vou --tags=scope:vou,type:utils`
+
+## Generating libs
+
+- Shell - defines routing for app or features
+- `npx nx g @nrwl/angular:lib solar-customer-shell-test --directory=solar-customer --tags=scope:solar-customer,type:shell --dryRun`
+
+- Feature - defines library which provides a feature for app
+- `npx nx g @nrwl/angular:lib solar-customer-feature-home-page --directory=solar-customer --tags=scope:solar-customer,type:feature --dryRun`
+
+- Ui - components which reads data and provides event emitters
+- `npx nx g @nrwl/angular:lib shared-ui --directory=shared --tags=scope:shared,type:ui --dryRun`
+
+- Model - lib for interfaces, enums ect.
+- `npx nx g @nrwl/angular:lib shared-model --directory=shared --tags=scope:shared,type:model --dryRun`
+
+Assets - lib for translation, jpgs, svgs ect.
+
+- `npx nx g @nrwl/angular:lib shared-assets --directory=shared --tags=scope:shared,type:assets --dryRun`
+
+- Api - lib for api services and models.
+- `npx nx g @nrwl/angular:lib openapi-solar --directory=openapi --tags=scope:openapi,type:api --dryRun`
+
+- Store - lib for redux for app.
+- `npx nx g @nrwl/angular:lib solar-customer-store --directory=solar-customer --tags=scope:solar-customer,type:store --dryRun`
+
+- Utils - lib for utils services and components.
+- `npx nx g @nrwl/angular:lib shared-utils --directory=shared --tags=scope:shared,type:utils --dryRun`
+
+## Ngx-translate
+
+Documentation: http://www.ngx-translate.com/
+
+Supported languages:
+
+- PL
+- ENG
+
+## Generate lib example with NgModule
+
+- `npx nx generate @nrwl/angular:library --name=shared-assets --directory=libs/shared/shared-assets --tags=scope:shared,type:assets --standalone=false`
+
+- `npx nx generate @nrwl/angular:library --name=shared-assets --directory=libs/shared/shared-model --tags=scope:shared,type:model --standalone=false`
+
+- `npx nx generate @nrwl/angular:library --name=shared-utils --directory=libs/shared/shared-utils --tags=scope:shared,type:utils`
+
+- `npx nx generate @nrwl/angular:library --name=features-store --directory=libs/data-acess/open-api --tags=scope:data-acess,type:api --standalone=false`
+
+## Generate components into libs
+
+- `npx nx g @nrwl/angular:component ui-tooltip --standalone=false --module=shared.module.ts`
+- `npx nx g @nrwl/angular:component muddy-code-header-feature --standalone=false --module=muddy-code-feature-header.module.ts`
+
+## Config Angular Material lib on project
+
+- `npx nx g @angular/material:ng-add --project=project-name-example`
+
+#### Folders/Libs structure
+
 ```
+├── apps
+│   ├── app1
+│   ├── app2
+├── libs
+│   ├──features
+│   │   ├──
+│   │   ├──
+│   │   ├──
+│   ├── data-acess
+│   │   ├── data-access
+│   │   ├── open-api
+│   ├── shared
+│   │   ├── shared-assets
+│   │   ├── shared-auth
+│   │   ├── shared-common-types
+│   │   ├── shred-utils
+│   │   ├── shred-model
+│   │   ├── shared-ui
+│   │   |   ├── layouts
+│   │   |   ├── components
+│   ├── shells
+│   │   ├──
+│   │   ├──
+│   │   ├──
+|   ├── store
+|   |   ├──
 
-To create a production bundle:
-
-```sh
-npx nx build blog-monorepo
 ```
-
-To see all available targets to run for a project, run:
-
-```sh
-npx nx show project blog-monorepo
-```
-
-These targets are either [inferred automatically](https://nx.dev/concepts/inferred-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or defined in the `project.json` or `package.json` files.
-
-[More about running tasks in the docs &raquo;](https://nx.dev/features/run-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Add new projects
-
-While you could add new projects to your workspace manually, you might want to leverage [Nx plugins](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) and their [code generation](https://nx.dev/features/generate-code?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) feature.
-
-Use the plugin's generator to create new projects.
-
-To generate a new application, use:
-
-```sh
-npx nx g @nx/angular:app demo
-```
-
-To generate a new library, use:
-
-```sh
-npx nx g @nx/angular:lib mylib
-```
-
-You can use `npx nx list` to get a list of installed plugins. Then, run `npx nx list <plugin-name>` to learn about more specific capabilities of a particular plugin. Alternatively, [install Nx Console](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) to browse plugins and generators in your IDE.
-
-[Learn more about Nx plugins &raquo;](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) | [Browse the plugin registry &raquo;](https://nx.dev/plugin-registry?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-
-[Learn more about Nx on CI](https://nx.dev/ci/intro/ci-with-nx#ready-get-started-with-your-provider?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Install Nx Console
-
-Nx Console is an editor extension that enriches your developer experience. It lets you run tasks, generate code, and improves code autocompletion in your IDE. It is available for VSCode and IntelliJ.
-
-[Install Nx Console &raquo;](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Useful links
-
-Learn more:
-
-- [Learn more about this workspace setup](https://nx.dev/getting-started/tutorials/angular-monorepo-tutorial?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects)
-- [Learn about Nx on CI](https://nx.dev/ci/intro/ci-with-nx?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Releasing Packages with Nx release](https://nx.dev/features/manage-releases?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [What are Nx plugins?](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-And join the Nx community:
-- [Discord](https://go.nx.dev/community)
-- [Follow us on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)
-- [Our Youtube channel](https://www.youtube.com/@nxdevtools)
-- [Our blog](https://nx.dev/blog?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
