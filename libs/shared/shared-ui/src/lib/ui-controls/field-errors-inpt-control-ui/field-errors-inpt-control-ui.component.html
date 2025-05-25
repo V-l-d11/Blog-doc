@@ -1,5 +1,5 @@
-<ng-container *ngIf="formFiled?.dirty">
-  <span class="field-error" *ngIf="formFiled?.hasError('required')">
+<ng-container *ngIf="formField?.dirty">
+  <span class="field-error" *ngIf="formField?.hasError('required')">
     This is a required filed
   </span>
   <span class="field-error" *ngIf="formField?.hasError('noEmptyString')">

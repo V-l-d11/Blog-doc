@@ -7,6 +7,7 @@ import { UiH4h5h6Component } from './ui-components/ui-h4h5h6/ui-h4h5h6.component
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InputFiledControlUiComponent } from './ui-controls/input-filed-control-ui/input-filed-control-ui.component';
 import { FieldErrorsInptControlUiComponent } from './ui-controls/field-errors-inpt-control-ui/field-errors-inpt-control-ui.component';
+import { GeneralFormControlUiComponent } from './ui-controls/general-form-control-ui/general-form-control-ui.component';
 
 @NgModule({
   imports: [CommonModule, FormsModule, ReactiveFormsModule],
@@ -17,6 +18,7 @@ import { FieldErrorsInptControlUiComponent } from './ui-controls/field-errors-in
     UiH4h5h6Component,
     InputFiledControlUiComponent,
     FieldErrorsInptControlUiComponent,
+    GeneralFormControlUiComponent,
   ],
 })
 export class SharedUiModule {}

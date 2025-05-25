@@ -1,18 +1,18 @@
 <div class="form-row">
-  <label class="form-label" [for]="filedName">
+  <label class="form-label" [for]="fieldName">
     <span class="is-requered">{{ label }}</span>
     <lib-field-errors-inpt-control-ui
-      [formFiled]="formFiled"
+      [formField]="formField"
     ></lib-field-errors-inpt-control-ui>
   </label>
   <input
     type="text"
     class="form-element"
-    [id]="filedName"
-    [name]="filedName"
-    [ngClass]="{'has-error':formField?.invalid   && formField?dirty}"
+    [id]="fieldName"
+    [name]="fieldName"
+    [ngClass]="{ 'has-error': formField?.invalid && formField?.dirty }"
     [value]="value"
-    (input)="onChange($event)"
+    (input)="onChanged($event)"
     (blur)="touched()"
     [disabled]="isDisabled"
   />
