@@ -13,6 +13,6 @@ export interface FormFieldConfig {
   label?: string;
   validators?: ValidatorFn[];
   children?: FormFieldConfig[];
-  options?: { value: string; label: string }[]; // для select
+  options?: { value: string; label: string }[];
   styles?: { [key: string]: string };
 }

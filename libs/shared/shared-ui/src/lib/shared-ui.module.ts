@@ -8,6 +8,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InputFiledControlUiComponent } from './ui-controls/input-filed-control-ui/input-filed-control-ui.component';
 import { FieldErrorsInptControlUiComponent } from './ui-controls/field-errors-inpt-control-ui/field-errors-inpt-control-ui.component';
 import { GeneralFormControlUiComponent } from './ui-controls/general-form-control-ui/general-form-control-ui.component';
+import { HeaderControlUiComponent } from './ui-controls/header-control-ui/header-control-ui.component';
+import { FooterControlUiComponent } from './ui-controls/footer-control-ui/footer-control-ui.component';
+import { DropDownSearchControlUiComponent } from './ui-controls/drop-down-search-control-ui/drop-down-search-control-ui.component';
+import { UiParagrafComponent } from './ui-components/ui-paragraf/ui-paragraf.component';
 
 @NgModule({
   imports: [CommonModule, FormsModule, ReactiveFormsModule],
@@ -19,6 +23,10 @@ import { GeneralFormControlUiComponent } from './ui-controls/general-form-contro
     InputFiledControlUiComponent,
     FieldErrorsInptControlUiComponent,
     GeneralFormControlUiComponent,
+    HeaderControlUiComponent,
+    FooterControlUiComponent,
+    DropDownSearchControlUiComponent,
+    UiParagrafComponent,
   ],
 })
 export class SharedUiModule {}

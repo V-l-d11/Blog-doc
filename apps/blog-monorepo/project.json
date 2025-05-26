@@ -22,7 +22,10 @@
             "input": "apps/blog-monorepo/public"
           }
         ],
-        "styles": ["apps/blog-monorepo/src/styles.scss"],
+        "styles": [
+          "apps/blog-monorepo/src/styles.scss",
+          "node_modules/bootstrap/dist/css/bootstrap.min.css"
+        ],
         "scripts": []
       },
       "configurations": {

@@ -1,0 +1,27 @@
+<div class="wrapper">
+  <div class="select-btn" (click)="toggleSectionHandler()">
+    <span
+      ><span>{{
+        selectedItem ? dispalyValue(selectedItem) : 'Select Option'
+      }}</span></span
+    >
+    <i class="uil uil-angle-down" [class.rotate]="toggleSection"></i>
+  </div>
+  @if (toggleSection) {
+  <div class="content" (scroll)="onScrollToEnd()">
+    <div class="search">
+      <i class="uil uil-search"></i>
+      <input
+        type="text"
+        placeholder="Search Country"
+        (input)="onInput($event)"
+      />
+    </div>
+    <ul class="options">
+      <li *ngFor="let item of filteredOptions" (click)="onSelect(item)">
+        {{ dispalyValue(item) }}
+      </li>
+    </ul>
+  </div>
+  }
+</div>
