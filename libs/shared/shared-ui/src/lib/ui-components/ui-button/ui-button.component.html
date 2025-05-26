@@ -1,0 +1,15 @@
+<button
+  [attr.type]="buttonConfig.submitType"
+  [disabled]="buttonConfig.disabled"
+  [title]="buttonConfig.tooltip"
+  [ngClass]="generateButtonClasses()"
+  [ngStyle]="buttonConfig.customStyles"
+  (click)="onClick($event)"
+>
+  @if (buttonConfig.icon) {
+  <i class="{{ buttonConfig.icon }}" icon-left></i>
+  }
+  <ng-content select="[icon-left]"></ng-content>
+  <span>{{ buttonConfig.text }}</span>
+  <ng-content select="[icon-right]"></ng-content>
+</button>

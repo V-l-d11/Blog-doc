@@ -12,6 +12,7 @@ import { HeaderControlUiComponent } from './ui-controls/header-control-ui/header
 import { FooterControlUiComponent } from './ui-controls/footer-control-ui/footer-control-ui.component';
 import { DropDownSearchControlUiComponent } from './ui-controls/drop-down-search-control-ui/drop-down-search-control-ui.component';
 import { UiParagrafComponent } from './ui-components/ui-paragraf/ui-paragraf.component';
+import { UiButtonComponent } from './ui-components/ui-button/ui-button.component';
 
 @NgModule({
   imports: [CommonModule, FormsModule, ReactiveFormsModule],
@@ -27,6 +28,7 @@ import { UiParagrafComponent } from './ui-components/ui-paragraf/ui-paragraf.com
     FooterControlUiComponent,
     DropDownSearchControlUiComponent,
     UiParagrafComponent,
+    UiButtonComponent,
   ],
 })
 export class SharedUiModule {}
