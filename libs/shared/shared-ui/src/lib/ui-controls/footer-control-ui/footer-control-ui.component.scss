@@ -1,0 +1,9 @@
+.footer {
+  padding: 0 65px;
+  height: 10%;
+}
+
+.primary-footer {
+  background-color: map-get($color, 'nav-blue');
+  color: map-get($color, 'gray100');
+}

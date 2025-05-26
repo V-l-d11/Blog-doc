@@ -1,0 +1,53 @@
+@if (config) {
+<form
+  [formGroup]="formGroupe"
+  [ngStyle]="config.styles"
+  [ngClass]="config.classes"
+  (ngSubmit)="submit()"
+>
+  <ng-container *ngFor="let field of config.fields">
+    <ng-container [ngSwitch]="field.type">
+      <div *ngSwitchCase="'input'">
+        <label [for]="field.name">{{ field.label }}</label>
+        <input [formControlName]="field.name" [ngStyle]="field.styles" />
+      </div>
+
+      <div *ngSwitchCase="'select'">
+        <label [for]="field.name">{{ field.label }}</label>
+        <select [formControlName]="field.name" [ngStyle]="field.styles">
+          <option *ngFor="let opt of field.options" [value]="opt.value">
+            {{ opt.label }}
+          </option>
+        </select>
+      </div>
+
+      <div *ngSwitchCase="'checkbox'">
+        <label>
+          <input
+            type="checkbox"
+            [formControlName]="field.name"
+            [ngStyle]="field.styles"
+          />
+          {{ field.label }}
+        </label>
+      </div>
+
+      <fieldset *ngSwitchCase="'group'" [formGroupName]="field.name">
+        <legend>{{ field.label }}</legend>
+        <lib-general-form-control-ui
+          [config]="{ fields: field.children || [] }"
+          (formSubmit)="formGroupe.get(field.name)?.patchValue($event)"
+        >
+        </lib-general-form-control-ui>
+      </fieldset>
+
+      <div *ngSwitchCase="'array'">
+        <p class="form-array-label">
+          {{ field.label }}
+        </p>
+      </div>
+    </ng-container>
+  </ng-container>
+  <button type="submit">{{ config.submitText || 'Submit' }}</button>
+</form>
+}

@@ -1,0 +1,7 @@
+.primary-toolbar {
+  background-color: map-get($colors, 'primary-button');
+}
+
+.secondary-toolbar {
+  background-color: map-get($colors, 'gray900');
+}
