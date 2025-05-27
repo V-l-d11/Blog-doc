@@ -1,0 +1,14 @@
+<label
+  [for]="forName"
+  [classList]="'form-label ' + customClassListFn().join(' ')"
+  [style]="customStylessFn()"
+  [ngClass]="{
+    'ui-label-primary': colorShemeFn() === UiLabelColorSheme.PRIMARY,
+    'ui-label-secondary': colorShemeFn() === UiLabelColorSheme.SECONDARY,
+    'ui-label-accent': colorShemeFn() === UiLabelColorSheme.ACCENT,
+    'ui-label-style-block': customStylessFn() === UiLabelStyle.BLOCK,
+    'ui-label-style-inline': customStylessFn() === UiLabelStyle.INLINE
+  }"
+>
+  <ng-content></ng-content>
+</label>

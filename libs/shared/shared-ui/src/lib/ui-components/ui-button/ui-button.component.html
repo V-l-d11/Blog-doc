@@ -7,7 +7,7 @@
   (click)="onClick($event)"
 >
   @if (buttonConfig.icon) {
-  <i class="{{ buttonConfig.icon }}" icon-left></i>
+  <i class="{{ buttonConfig.icon }}" class="icon-left"></i>
   }
   <ng-content select="[icon-left]"></ng-content>
   <span>{{ buttonConfig.text }}</span>
