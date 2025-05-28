@@ -1,19 +1,14 @@
-<div class="form-row">
-  <label class="form-label" [for]="fieldName">
-    <span class="is-requered">{{ label }}</span>
-    <lib-field-errors-inpt-control-ui
-      [formField]="formField"
-    ></lib-field-errors-inpt-control-ui>
-  </label>
-  <input
-    type="text"
-    class="form-element"
-    [id]="fieldName"
-    [name]="fieldName"
-    [ngClass]="{ 'has-error': formField?.invalid && formField?.dirty }"
-    [value]="value"
-    (input)="onChanged($event)"
-    (blur)="touched()"
-    [disabled]="isDisabled"
-  />
-</div>
+<input
+  [id]="name"
+  [type]="type"
+  [formControlName]="name"
+  [placeholder]="placholder"
+  [readonly]="readonly"
+  [autocomplete]="autocomplete ? 'on' : 'off'"
+  [ngClass]="combinedClasses"
+  [ngStyle]="customStyles"
+  libUIBlurOnEnter
+/>
+<lib-validate-message-control-ui
+  [validationFeedback]="validationFeedback"
+></lib-validate-message-control-ui>

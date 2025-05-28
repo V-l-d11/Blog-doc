@@ -21,6 +21,7 @@ import { Subscription } from 'rxjs';
   selector: 'lib-general-form-control-ui',
   templateUrl: './general-form-control-ui.component.html',
   styleUrl: './general-form-control-ui.component.scss',
+  standalone: false,
 })
 export class GeneralFormControlUiComponent
   implements AfterContentInit, OnDestroy

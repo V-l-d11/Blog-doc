@@ -4,6 +4,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   selector: 'lib-drop-down-search-control-ui',
   templateUrl: './drop-down-search-control-ui.component.html',
   styleUrl: './drop-down-search-control-ui.component.scss',
+  standalone: false,
 })
 export class DropDownSearchControlUiComponent<T> {
   @Input() public options: T[] = [];

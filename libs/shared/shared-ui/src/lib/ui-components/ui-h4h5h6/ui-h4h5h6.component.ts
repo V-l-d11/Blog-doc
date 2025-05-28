@@ -4,6 +4,7 @@ import { Component, input } from '@angular/core';
   selector: 'lib-ui-h4h5h6',
   templateUrl: './ui-h4h5h6.component.html',
   styleUrl: './ui-h4h5h6.component.scss',
+  standalone: false,
 })
 export class UiH4h5h6Component {
   public text = input<string>();

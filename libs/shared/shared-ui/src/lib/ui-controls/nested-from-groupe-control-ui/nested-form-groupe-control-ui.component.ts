@@ -6,7 +6,7 @@ import { ControlContainer, FormGroupDirective } from '@angular/forms';
   selector: 'lib-nested-form-groupe-control-ui',
   templateUrl: './nested-form-groupe-control-ui.component.html',
   styleUrls: ['./nested-form-groupe-control-ui.component.scss'],
-
+  standalone: false,
   viewProviders: [
     {
       provide: ControlContainer,

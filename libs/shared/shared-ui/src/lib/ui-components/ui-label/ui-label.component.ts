@@ -8,6 +8,7 @@ import {
   selector: 'lib-ui-label',
   templateUrl: './ui-label.component.html',
   styleUrl: './ui-label.component.scss',
+  standalone: false,
 })
 export class UiLabelComponent {
   @Input() public forName!: string;

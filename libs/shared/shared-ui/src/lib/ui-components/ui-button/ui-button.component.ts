@@ -5,6 +5,7 @@ import { UIButtonVM } from '../../ui-models/ui-button-vm';
   selector: 'lib-ui-button',
   templateUrl: './ui-button.component.html',
   styleUrl: './ui-button.component.scss',
+  standalone: false,
 })
 export class UiButtonComponent {
   @Input() public buttonConfig!: UIButtonVM;

@@ -15,6 +15,8 @@ import { UiParagrafComponent } from './ui-components/ui-paragraf/ui-paragraf.com
 import { UiButtonComponent } from './ui-components/ui-button/ui-button.component';
 import { NestedFormGroupeControlUiComponent } from './ui-controls/nested-from-groupe-control-ui/nested-form-groupe-control-ui.component';
 import { UiLabelComponent } from './ui-components/ui-label/ui-label.component';
+import { ValidateMessageControlUiComponent } from './ui-controls/validate-message-control-ui/validate-message-control-ui.component';
+import { UiSpinnerComponent } from './ui-components/ui-spinner/ui-spinner.component';
 
 @NgModule({
   imports: [CommonModule, FormsModule, ReactiveFormsModule],
@@ -33,6 +35,8 @@ import { UiLabelComponent } from './ui-components/ui-label/ui-label.component';
     UiButtonComponent,
     NestedFormGroupeControlUiComponent,
     UiLabelComponent,
+    ValidateMessageControlUiComponent,
+    UiSpinnerComponent,
   ],
 })
 export class SharedUiModule {}
