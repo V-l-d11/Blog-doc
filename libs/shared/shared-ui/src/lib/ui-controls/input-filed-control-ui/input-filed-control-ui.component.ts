@@ -1,10 +1,7 @@
-import { Component, forwardRef, Input } from '@angular/core';
-import {
-  ControlValueAccessor,
-  FormControl,
-  FormGroup,
-  NG_VALUE_ACCESSOR,
-} from '@angular/forms';
+import { Component, forwardRef, Input, OnInit } from '@angular/core';
+import { ControlContainer, FormGroupDirective } from '@angular/forms';
+import { UiFormControlValidated } from '../../ui-core/abstract/ui-form-control-validated.abstract';
+import { UiValidatorFeedback } from '../../ui-models/ui-general-form-vm';
 
 /*
 <lib-input-filed-control-ui [parentForm]="regidtrationForm" filedName="name label="Name"> 
@@ -14,52 +11,50 @@ import {
   selector: 'lib-input-filed-control-ui',
   templateUrl: './input-filed-control-ui.component.html',
   styleUrl: './input-filed-control-ui.component.scss',
+  standalone: false,
   providers: [
     {
-      provide: NG_VALUE_ACCESSOR,
+      provide: UiFormControlValidated,
       useExisting: forwardRef(() => InputFiledControlUiComponent),
-      multi: true,
+    },
+  ],
+  viewProviders: [
+    {
+      provide: ControlContainer,
+      useExisting: forwardRef(() => FormGroupDirective),
     },
   ],
 })
-export class InputFiledControlUiComponent implements ControlValueAccessor {
-  @Input()
-  public parentForm!: FormGroup;
+export class InputFiledControlUiComponent implements OnInit {
+  @Input() type: 'text' | 'number' | 'email' | 'date' = 'text';
+  @Input() name!: string;
+  @Input() placholder = '';
+  @Input() readonly = false;
+  @Input() autocomplete = false;
+  @Input() customClassList: string[] = [];
+  @Input() customStyles: { [key: string]: string } = {};
 
-  @Input()
-  public fieldName!: string;
+  validationFeedback: UiValidatorFeedback[] = [];
 
-  @Input()
-  public label!: string;
-
-  public value!: string;
-
-  public changed!: (value: string) => void;
-
-  public touched!: () => void;
-
-  public isDisabled!: boolean;
-
-  get formField(): FormControl {
-    return this.parentForm?.get(this.fieldName) as FormControl;
+  ngOnInit(): void {
+    if (!this.name) {
+      throw new Error('Input [name] is required for UiInputComponent');
+    }
   }
 
-  public onChanged(event: Event): void {
-    const value: string = (<HTMLInputElement>event.target).value;
-
-    this.changed(value);
+  onValidation(feedback: UiValidatorFeedback[]): void {
+    this.validationFeedback = feedback;
   }
 
-  public writeValue(value: string): void {
-    this.value = value;
+  public get combinedClasses(): string[] {
+    return [
+      'form-control',
+      ...(this.customClassList || []),
+      this.type === 'date' ? 'date-input' : '',
+    ];
   }
-  registerOnChange(fn: any): void {
-    this.changed = fn;
-  }
-  registerOnTouched(fn: any): void {
-    this.touched = fn;
-  }
-  setDisabledState?(isDisabled: boolean): void {
-    this.isDisabled = isDisabled;
+
+  getControlName(): string {
+    return this.name;
   }
 }

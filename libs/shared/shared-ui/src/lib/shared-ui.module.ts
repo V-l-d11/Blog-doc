@@ -12,6 +12,11 @@ import { HeaderControlUiComponent } from './ui-controls/header-control-ui/header
 import { FooterControlUiComponent } from './ui-controls/footer-control-ui/footer-control-ui.component';
 import { DropDownSearchControlUiComponent } from './ui-controls/drop-down-search-control-ui/drop-down-search-control-ui.component';
 import { UiParagrafComponent } from './ui-components/ui-paragraf/ui-paragraf.component';
+import { UiButtonComponent } from './ui-components/ui-button/ui-button.component';
+import { NestedFormGroupeControlUiComponent } from './ui-controls/nested-from-groupe-control-ui/nested-form-groupe-control-ui.component';
+import { UiLabelComponent } from './ui-components/ui-label/ui-label.component';
+import { ValidateMessageControlUiComponent } from './ui-controls/validate-message-control-ui/validate-message-control-ui.component';
+import { UiSpinnerComponent } from './ui-components/ui-spinner/ui-spinner.component';
 
 @NgModule({
   imports: [CommonModule, FormsModule, ReactiveFormsModule],
@@ -27,6 +32,11 @@ import { UiParagrafComponent } from './ui-components/ui-paragraf/ui-paragraf.com
     FooterControlUiComponent,
     DropDownSearchControlUiComponent,
     UiParagrafComponent,
+    UiButtonComponent,
+    NestedFormGroupeControlUiComponent,
+    UiLabelComponent,
+    ValidateMessageControlUiComponent,
+    UiSpinnerComponent,
   ],
 })
 export class SharedUiModule {}

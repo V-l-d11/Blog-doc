@@ -1,0 +1,18 @@
+.form-label {
+  &.ui-label-primary {
+    color: red;
+  }
+  &.ui-label-secondary {
+    color: blue;
+  }
+  &.ui-label-accent {
+    color: black;
+  }
+  &.ui.label-style-block {
+    display: block !important;
+  }
+  &.ui-label-style-inline {
+    display: inline-block !important;
+    min-width: 12rem;
+  }
+}

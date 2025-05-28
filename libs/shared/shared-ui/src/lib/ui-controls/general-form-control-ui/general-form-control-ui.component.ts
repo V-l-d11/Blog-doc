@@ -1,61 +1,81 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import {
-  FormFieldConfig,
-  FormViewModel,
+  AfterContentInit,
+  Component,
+  ContentChildren,
+  EventEmitter,
+  Input,
+  OnDestroy,
+  OnInit,
+  Output,
+  QueryList,
+} from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import {
+  UiControlValidation,
+  UiValidatorFeedback,
 } from '../../ui-models/ui-general-form-vm';
-import {
-  AbstractControl,
-  FormArray,
-  FormControl,
-  FormGroup,
-} from '@angular/forms';
+import { UiFormControlValidated } from '../../ui-core/abstract/ui-form-control-validated.abstract';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'lib-general-form-control-ui',
   templateUrl: './general-form-control-ui.component.html',
   styleUrl: './general-form-control-ui.component.scss',
+  standalone: false,
 })
-export class GeneralFormControlUiComponent<T> implements OnInit {
-  @Input({ required: true }) config: FormViewModel | undefined;
-  @Output() formSubmit = new EventEmitter<T>();
+export class GeneralFormControlUiComponent
+  implements AfterContentInit, OnDestroy
+{
+  @Input() public formGroupe!: FormGroup;
+  @Input() public controlValidation!: UiControlValidation[];
+  @Input() public customClassList!: string[];
+  @Input() public customStyles = {};
 
-  formGroupe!: FormGroup;
+  private formGroupeSubscription?: Subscription;
 
-  ngOnInit(): void {
-    if (this.config) {
-      this.formGroupe = this.buildFormGroupe(this.config.fields);
-    } else {
-      console.error('Config is undefined');
-    }
+  @Output() fromSubmit = new EventEmitter<Event>();
+
+  @ContentChildren(UiFormControlValidated, { descendants: true })
+  validateControls!: QueryList<UiFormControlValidated>;
+
+  ngAfterContentInit(): void {
+    this.formGroupeSubscription = this.formGroupe.valueChanges.subscribe(
+      (chenges) => this.validateFormGroup(chenges)
+    );
   }
 
-  buildFormGroupe(fields: FormFieldConfig[]): FormGroup {
-    const group: Record<string, AbstractControl> = {};
+  ngOnDestroy(): void {
+    this.formGroupeSubscription?.unsubscribe();
+  }
 
-    for (const field of fields) {
-      switch (field.type) {
-        case 'group':
-          group[field.name] = this.buildFormGroupe(field.children || []);
-          break;
-        case 'array':
-          group[field.name] = new FormArray([]);
-          break;
-        default:
-          group[field.name] = new FormControl('', field.validators || []);
+  onFormSubmit(event: Event): void {
+    this.fromSubmit.emit(event);
+  }
+
+  private validateFormGroup(changes: any): void {
+    if (!this.controlValidation) {
+      return;
+    }
+
+    Object.keys(changes).forEach((controlName) => {
+      const control = this.formGroupe.get(controlName);
+
+      if (control?.invalid) {
+        let validatorFeedbacks = (this.controlValidation.find(
+          (vf) => vf.controlName === controlName
+        )?.feedback ?? []) as UiValidatorFeedback[];
+
+        validatorFeedbacks = validatorFeedbacks.filter((vf) => {
+          const errors = control?.errors ?? {};
+          return Object.keys(errors)
+            .map((key) => key.toLowerCase())
+            .includes(vf.validator.toLowerCase());
+        });
+
+        this.validateControls
+          .filter((vc: any) => vc.getControlName() === controlName)
+          .forEach((control: any) => control.onValidation(validatorFeedbacks));
       }
-    }
-    return new FormGroup(group);
-  }
-
-  submit(): void {
-    if (this.formGroupe.valid) {
-      this.formSubmit.emit(this.formGroupe.value as T);
-    } else {
-      this.formGroupe.markAllAsTouched();
-    }
-  }
-
-  getFormControl(name: string): AbstractControl {
-    return this.formGroupe.get(name) as AbstractControl;
+    });
   }
 }

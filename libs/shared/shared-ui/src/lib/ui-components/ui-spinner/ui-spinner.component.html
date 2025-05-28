@@ -1,0 +1,12 @@
+<div
+  [classList]="'spinner-border ' + customClassesFn.join('')"
+  [style]="customStylesFn"
+  [ngClass]="{
+    'spinner-border-xl': sizeSpinner === 'LARGE',
+    'spinner-border-m': sizeSpinner === 'MEDIUM',
+    'spinner-border-s': sizeSpinner === 'SMALL'
+  }"
+  role="status"
+>
+  <span class="hidden">{{ text }}</span>
+</div>

@@ -4,6 +4,7 @@ import { Component, Input } from '@angular/core';
   selector: 'lib-ui-paragraf',
   templateUrl: './ui-paragraf.component.html',
   styleUrl: './ui-paragraf.component.scss',
+  standalone: false,
 })
 export class UiParagrafComponent {
   @Input() public style: 'light' | 'dark' = 'dark';

@@ -1,0 +1,14 @@
+<div class="text-start" *ngFor="let validation of validationFeedback">
+  <ng-container *ngIf="isPrimitive(validation); else objectBlock">
+    <p class="mb-1">{{ validation }}</p>
+  </ng-container>
+
+  <ng-template #objectBlock>
+    <div class="mb-2 ps-2 border-start border-2 border-secondary">
+      <div *ngFor="let key of getObjectKeys(validation)">
+        <strong>{{ key }}:</strong>
+        {{ getValue(validation, key) }}
+      </div>
+    </div>
+  </ng-template>
+</div>
