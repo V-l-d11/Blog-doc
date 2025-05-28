@@ -1,4 +1,10 @@
+@if (!url) {
 <p
   [class]="'paragraf ' + 'paragraf-' + style"
   [ngStyle]="{ 'font-size': fontSizeMap[size] }"
-></p>
+>
+  {{ text }}
+</p>
+}@else {
+<a [routerLink]="url" href="#">{{ text }}</a>
+}

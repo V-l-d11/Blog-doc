@@ -17,9 +17,13 @@ import { NestedFormGroupeControlUiComponent } from './ui-controls/nested-from-gr
 import { UiLabelComponent } from './ui-components/ui-label/ui-label.component';
 import { ValidateMessageControlUiComponent } from './ui-controls/validate-message-control-ui/validate-message-control-ui.component';
 import { UiSpinnerComponent } from './ui-components/ui-spinner/ui-spinner.component';
-
+import { UiChipComponent } from './ui-components/ui-chip/ui-chip.component';
+import { UiIconComponent } from './ui-components/ui-icon/ui-icon.component';
+import { BreadcrumbsControlUiComponent } from './ui-controls/breadcrumbs-control-ui/breadcrumbs-control-ui.component';
+import { RouterModule } from '@angular/router';
+import { SnackbarControlUiComponent } from './ui-controls/snackbar-control-ui/snackbar-control-ui.component';
 @NgModule({
-  imports: [CommonModule, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, RouterModule],
   declarations: [
     UiH1Component,
     UiH2Component,
@@ -37,6 +41,10 @@ import { UiSpinnerComponent } from './ui-components/ui-spinner/ui-spinner.compon
     UiLabelComponent,
     ValidateMessageControlUiComponent,
     UiSpinnerComponent,
+    UiChipComponent,
+    UiIconComponent,
+    BreadcrumbsControlUiComponent,
+    SnackbarControlUiComponent,
   ],
 })
 export class SharedUiModule {}
