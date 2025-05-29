@@ -22,6 +22,8 @@ import { UiIconComponent } from './ui-components/ui-icon/ui-icon.component';
 import { BreadcrumbsControlUiComponent } from './ui-controls/breadcrumbs-control-ui/breadcrumbs-control-ui.component';
 import { RouterModule } from '@angular/router';
 import { SnackbarControlUiComponent } from './ui-controls/snackbar-control-ui/snackbar-control-ui.component';
+import { FormConfigLayoutUiComponent } from './ui-layouts/form-config-layout-ui/form-config-layout-ui.component';
+import { InputCheckboxControlUiComponent } from './ui-controls/input-checkbox-control-ui/input-checkbox-control-ui.component';
 @NgModule({
   imports: [CommonModule, FormsModule, ReactiveFormsModule, RouterModule],
   declarations: [
@@ -45,6 +47,8 @@ import { SnackbarControlUiComponent } from './ui-controls/snackbar-control-ui/sn
     UiIconComponent,
     BreadcrumbsControlUiComponent,
     SnackbarControlUiComponent,
+    FormConfigLayoutUiComponent,
+    InputCheckboxControlUiComponent,
   ],
 })
 export class SharedUiModule {}

@@ -1,0 +1,15 @@
+<input
+  [id]="name"
+  type="checkbox"
+  [formControlName]="name"
+  [style]="customStyles"
+  [classList]="'form-check-input ' + customClassList.join(' ')"
+  [ngClass]="{
+    'ui-check-primary': colorSheme === UiControlCheckboxSheme.PRIMARY,
+    'ui-check-secondary': colorSheme === UiControlCheckboxSheme.SECONDARY,
+    'ui-check-accent': colorSheme === UiControlCheckboxSheme.ACCENT
+  }"
+/>
+<lib-validate-message-control-ui
+  [validationFeedback]="validationFedback"
+></lib-validate-message-control-ui>

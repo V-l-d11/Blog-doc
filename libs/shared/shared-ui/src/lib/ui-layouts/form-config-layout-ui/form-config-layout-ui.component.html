@@ -1,0 +1,15 @@
+<lib-general-form-control-ui [formGroupe]="formGroupe" (fromSubmit)="submit()">
+  <ng-container *ngFor="let group of fromGroupes">
+    <div [formGroupName]="group.groupeName">
+      <ng-container *ngFor="let field of group.fileds">
+        <lib-input-filed-control-ui
+          *ngIf="field.type === 'input'"
+          [name]="field.name"
+          [type]="field.inputType || 'text'"
+          [placholder]="field.placholder"
+        ></lib-input-filed-control-ui>
+        <!-- add select checkbox components -->
+      </ng-container>
+    </div>
+  </ng-container>
+</lib-general-form-control-ui>
