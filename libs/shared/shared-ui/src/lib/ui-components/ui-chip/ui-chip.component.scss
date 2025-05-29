@@ -1,0 +1,90 @@
+.chip-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 4px 10px;
+  gap: 10px;
+  border-radius: 4px;
+  min-height: 26px;
+  width: fit-content;
+  border-radius: 12px;
+}
+
+.chip-transfer {
+  background-color: #636363;
+  border: 1px solid #d9d9d9;
+  color: #636363;
+}
+
+.chip-accent-light {
+  background: #ffffff;
+  border: 1px solid #00154e;
+  color: #00154e;
+}
+
+.chip-accent {
+  background: linear-gradient(
+      0deg,
+      rgba(23, 255, 255, 0.08),
+      rgba(23, 255, 255, 0.08)
+    ),
+    #ffffff;
+  border: 1px solid #00154e;
+  color: #00154e;
+}
+
+.chip-disabled-border {
+  background: rgba(217, 217, 217, 0.4);
+  border: 1px solid #636363;
+  color: #636363;
+}
+
+.chip-warn-border {
+  background: #ffffff;
+  border: 1px solid #7030a0;
+  color: #7030a0;
+}
+
+.chip-primary {
+  background: linear-gradient(
+      0deg,
+      rgba(0, 208, 255, 0.1),
+      rgba(0, 208, 255, 0.1)
+    ),
+    #ffffff;
+  border: 1px solid #00d0ff;
+  color: #00d0ff;
+}
+
+.chip-primary-light {
+  background: #ffffff;
+  border: 1px solid #00d0ff;
+  color: #00d0ff;
+}
+
+.chip-secondary {
+  background: linear-gradient(0deg, rgba(0, 21, 78, 0.1), rgba(0, 21, 78, 0.1)),
+    #ffffff;
+  border: 1px solid #00154e;
+  color: #00154e;
+}
+
+.chip-disabled {
+  background: #d9d9d9;
+  color: #636363;
+}
+
+.chip-warn {
+  background: #7030a0;
+  color: #ffffff;
+}
+
+.color-inherit {
+  color: inherit;
+}
+
+.chip-secondary-light {
+  background: #ffffff;
+  border: 1px solid #636363;
+  color: #636363;
+}
