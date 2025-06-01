@@ -17,3 +17,29 @@ this.form.controls.passport.markAsDirty(); // this value is automaticly chnages 
 ngOnDestroy():void{
 this.ageValidator.unsubscribe();
 }
+
+//@ContentChild - if in child component we have ng-content and want to check the component or tag who вложен с родителя
+//ngAfterViewInit -for interact with value
+
+//Reactive Form Validator in Template
+@if(form.controls.firstname.invalid && (form.controls.firstname.touched || form.controls.firstname.dirty) ){
+@if(form.controls.firstname.errors?.['requier']){
+<small>Requeried<small>
+}
+}
+
+//Fucnction With Validator
+
+export const forbidenNameValidator=(control:AbstractControl):ValidationErrors | null =>{
+const names=['foo'];
+return names.includes(control.value) ? {forbiddenName:'Name is not eloud'} : null;
+}
+
+form=this.fb.groupe({
+firstName:this.fb.control('',{
+validators:[
+Validator.requeier,
+forbidenNameValidator
+]
+})
+})
