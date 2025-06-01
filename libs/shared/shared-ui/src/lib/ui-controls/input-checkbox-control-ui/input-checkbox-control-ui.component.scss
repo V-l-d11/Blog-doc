@@ -1,0 +1,20 @@
+.form-check-input {
+  cursor: pointer;
+
+  &:checked {
+    &.ui-check-primary {
+      background-color: map-get(global.$ui-colors, 'primary');
+      border-color: map-get(global.$ui-colors, 'primary');
+    }
+
+    &.ui-check-secondary {
+      background-color: map-get(global.$ui-colors, 'secondary');
+      border-color: map-get(global.$ui-colors, 'secondary');
+    }
+
+    &.ui-check-accent {
+      background-color: map-get(global.$ui-colors, 'accent');
+      border-color: map-get(global.$ui-colors, 'accent');
+    }
+  }
+}

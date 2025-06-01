@@ -2,13 +2,25 @@
   <ng-container *ngFor="let group of fromGroupes">
     <div [formGroupName]="group.groupeName">
       <ng-container *ngFor="let field of group.fileds">
+        @switch (field.type) { @case ('select') {
+        <lib-select-control-ui [items]="field.value"></lib-select-control-ui>
+        } @case ('checkbox') {
+        <lib-input-checkbox-control-ui [name]="field.name">
+        </lib-input-checkbox-control-ui>
+        } @case ('input') {
         <lib-input-filed-control-ui
           *ngIf="field.type === 'input'"
           [name]="field.name"
           [type]="field.inputType || 'text'"
           [placholder]="field.placholder"
         ></lib-input-filed-control-ui>
-        <!-- add select checkbox components -->
+        } @default {
+        <lib-ui-paragraf
+          [text]="'Fileds dont find'"
+          [size]="'medium'"
+          [style]="'light'"
+        ></lib-ui-paragraf>
+        } }
       </ng-container>
     </div>
   </ng-container>
