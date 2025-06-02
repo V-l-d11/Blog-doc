@@ -3,11 +3,19 @@ import {
   Component,
   forwardRef,
   Input,
+  OnInit,
+  Optional,
+  Self,
 } from '@angular/core';
 import { UiFormControlValidated } from '../../ui-core/abstract/ui-form-control-validated.abstract';
-import { ControlContainer, FormGroupDirective } from '@angular/forms';
+import {
+  ControlContainer,
+  FormGroupDirective,
+  NgControl,
+} from '@angular/forms';
 import { UiControlChekboxSheme } from '../../ui-models/contoll-model/chekxbox-vm';
 import { UiValidatorFeedback } from '../../ui-models/ui-general-form-vm';
+import { UiFormControlValidateDirective } from '../../ui-directives/ui-control-form.directive';
 
 @Component({
   selector: 'lib-input-checkbox-control-ui',
@@ -28,18 +36,24 @@ import { UiValidatorFeedback } from '../../ui-models/ui-general-form-vm';
     },
   ],
 })
-export class InputCheckboxControlUiComponent {
+export class InputCheckboxControlUiComponent
+  extends UiFormControlValidateDirective
+  implements OnInit
+{
   @Input() public name!: string;
   @Input() public colorSheme: UiControlChekboxSheme =
     UiControlChekboxSheme.PRIMARY;
-  @Input({ required: false }) public validationFedback: UiValidatorFeedback[] =
-    [];
+
   @Input() public customClassList: string[] = [];
   @Input() public customStyles = {};
 
-  protected readonly UiControlCheckboxSheme = UiControlChekboxSheme;
-
-  onValidation(feedback: UiValidatorFeedback[]): void {
-    this.validationFedback = feedback;
+  constructor(@Self() @Optional() override ngControl: NgControl) {
+    super(ngControl);
   }
+
+  override ngOnInit(): void {
+    super.ngOnInit();
+  }
+
+  protected readonly UiControlCheckboxSheme = UiControlChekboxSheme;
 }
