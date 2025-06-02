@@ -1,7 +1,19 @@
-import { Component, forwardRef, Input, OnInit } from '@angular/core';
-import { ControlContainer, FormGroupDirective } from '@angular/forms';
+import {
+  Component,
+  forwardRef,
+  Input,
+  OnInit,
+  Optional,
+  Self,
+} from '@angular/core';
+import {
+  ControlContainer,
+  FormGroupDirective,
+  NgControl,
+} from '@angular/forms';
 import { UiFormControlValidated } from '../../ui-core/abstract/ui-form-control-validated.abstract';
 import { UiValidatorFeedback } from '../../ui-models/ui-general-form-vm';
+import { UiFormControlValidateDirective } from '../../ui-directives/ui-control-form.directive';
 
 /*
 <lib-input-filed-control-ui [parentForm]="regidtrationForm" filedName="name label="Name"> 
@@ -25,7 +37,10 @@ import { UiValidatorFeedback } from '../../ui-models/ui-general-form-vm';
     },
   ],
 })
-export class InputFiledControlUiComponent implements OnInit {
+export class InputFiledControlUiComponent
+  extends UiFormControlValidateDirective
+  implements OnInit
+{
   @Input() type: 'text' | 'number' | 'email' | 'date' = 'text';
   @Input() name!: string;
   @Input() placholder = '';
@@ -34,9 +49,14 @@ export class InputFiledControlUiComponent implements OnInit {
   @Input() customClassList: string[] = [];
   @Input() customStyles: { [key: string]: string } = {};
 
-  validationFeedback: UiValidatorFeedback[] = [];
+  override validationFeedback: UiValidatorFeedback[] = [];
 
-  ngOnInit(): void {
+  constructor(@Self() @Optional() override ngControl: NgControl) {
+    super(ngControl);
+  }
+
+  override ngOnInit(): void {
+    super.ngOnInit();
     if (!this.name) {
       throw new Error('Input [name] is required for UiInputComponent');
     }
