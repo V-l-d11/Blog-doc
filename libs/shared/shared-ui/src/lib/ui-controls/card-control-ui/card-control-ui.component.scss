@@ -1,0 +1,10 @@
+$border: 0.5px solid #000;
+$borderRadius: 5px;
+.card-primary {
+  border: $border;
+  border-radius: $borderRadius;
+}
+.card-secondary {
+  border: $border;
+  border-radius: $borderRadius;
+}

@@ -1,0 +1,14 @@
+<div class="timeline-wrapper">
+  <ul class="timeline-list">
+    @for (item of items; track $index) {
+    <li
+      class="timeline-item"
+      [class.active]="$index === activeIndex"
+      (click)="onSelected($index)"
+    >
+      <span class="dot"></span>
+      <span class="label">{{ item.label }}</span>
+    </li>
+    }
+  </ul>
+</div>
