@@ -9,8 +9,7 @@ import { Component, Input } from '@angular/core';
 export class UiParagrafComponent {
   @Input() public style: 'light' | 'dark' = 'dark';
   @Input() public size: 'large' | 'medium' | 'small' = 'medium';
-  @Input() public text!: string;
-  @Input() public url?: string;
+  @Input() textParts: { text: string; url?: string }[] = [];
 
   fontSizeMap: Record<'large' | 'medium' | 'small', string> = {
     large: '24px',

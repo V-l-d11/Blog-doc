@@ -3,7 +3,7 @@
     @for (bredcrumb of breadcrumbList; track $index) {
         @if ($index !==0  && $index<breadcrumbList.length) {
             <lib-ui-icon [icon]="'chevron_right'" [position]="'left'"></lib-ui-icon>
-            <lib-ui-paragraf [url]="bredcrumb.link" [text]="bredcrumb.title "></lib-ui-paragraf>
+            <lib-ui-paragraf [textParts]="[{text:bredcrumb.title,url:bredcrumb.link}]"></lib-ui-paragraf>
         }
      }
   </ng-container>

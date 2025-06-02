@@ -1,10 +1,10 @@
-@if (!url) {
 <p
   [class]="'paragraf ' + 'paragraf-' + style"
   [ngStyle]="{ 'font-size': fontSizeMap[size] }"
 >
-  {{ text }}
+  @for (part of textParts; track $index) { @if (!part.url) {
+  {{ part.text }}
+  } @else {
+  <a [routerLink]="part.url">{{ part.text }}</a>
+  } }
 </p>
-}@else {
-<a [routerLink]="url" href="#">{{ text }}</a>
-}
