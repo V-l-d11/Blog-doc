@@ -28,3 +28,8 @@
   </div>
   }
 </div>
+@if (validationFeedback?.length) {
+<lib-validate-message-control-ui
+  [validationFeedback]="validationFeedback"
+></lib-validate-message-control-ui>
+}

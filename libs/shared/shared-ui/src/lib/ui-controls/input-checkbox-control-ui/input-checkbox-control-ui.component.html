@@ -10,6 +10,9 @@
     'ui-check-accent': colorSheme === UiControlCheckboxSheme.ACCENT
   }"
 />
+@if (validationFeedback?.length) {
 <lib-validate-message-control-ui
-  [validationFeedback]="validationFedback"
+  [validationFeedback]="validationFeedback"
 ></lib-validate-message-control-ui>
+
+}

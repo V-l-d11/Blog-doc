@@ -7,10 +7,20 @@ import {
   inject,
   Input,
   OnInit,
+  Optional,
   Output,
+  Self,
 } from '@angular/core';
 import { UiSelectItem } from './../../ui-models/contoll-model/select-vm';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import {
+  ControlContainer,
+  ControlValueAccessor,
+  FormGroupDirective,
+  NG_VALUE_ACCESSOR,
+  NgControl,
+} from '@angular/forms';
+import { UiFormControlValidated } from '../../ui-core/abstract/ui-form-control-validated.abstract';
+import { UiFormControlValidateDirective } from '../../ui-directives/ui-control-form.directive';
 
 @Component({
   selector: 'lib-select-control-ui',
@@ -23,9 +33,22 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
       useExisting: forwardRef(() => SelectControlUiComponent),
       multi: true,
     },
+    {
+      provide: UiFormControlValidated,
+      useExisting: forwardRef(() => SelectControlUiComponent),
+    },
+  ],
+  viewProviders: [
+    {
+      provide: ControlContainer,
+      useExisting: forwardRef(() => FormGroupDirective),
+    },
   ],
 })
-export class SelectControlUiComponent implements ControlValueAccessor, OnInit {
+export class SelectControlUiComponent
+  extends UiFormControlValidateDirective
+  implements ControlValueAccessor, OnInit
+{
   @Input() public items: UiSelectItem[] = [];
   @Output() selectionChange = new EventEmitter<UiSelectItem[]>();
 
@@ -38,7 +61,12 @@ export class SelectControlUiComponent implements ControlValueAccessor, OnInit {
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   private onTouched: () => void = () => {};
 
-  ngOnInit(): void {
+  constructor(@Self() @Optional() override ngControl: NgControl) {
+    super(ngControl);
+  }
+
+  override ngOnInit(): void {
+    super.ngOnInit();
     this.filteredItems = this.items;
   }
 

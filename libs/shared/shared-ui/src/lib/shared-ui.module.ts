@@ -25,6 +25,9 @@ import { SnackbarControlUiComponent } from './ui-controls/snackbar-control-ui/sn
 import { FormConfigLayoutUiComponent } from './ui-layouts/form-config-layout-ui/form-config-layout-ui.component';
 import { InputCheckboxControlUiComponent } from './ui-controls/input-checkbox-control-ui/input-checkbox-control-ui.component';
 import { SelectControlUiComponent } from './ui-controls/select-control-ui/select-control-ui.component';
+import { NavSectionCardControlUiComponent } from './ui-controls/nav-section-card-control-ui/nav-section-card-control-ui.component';
+import { CardControlUiComponent } from './ui-controls/card-control-ui/card-control-ui.component';
+import { ScrollspyLayoutUiComponent } from './ui-layouts/scrollspy-layout-ui/scrollspy-layout-ui.component';
 @NgModule({
   imports: [CommonModule, FormsModule, ReactiveFormsModule, RouterModule],
   declarations: [
@@ -51,6 +54,9 @@ import { SelectControlUiComponent } from './ui-controls/select-control-ui/select
     FormConfigLayoutUiComponent,
     InputCheckboxControlUiComponent,
     SelectControlUiComponent,
+    NavSectionCardControlUiComponent,
+    CardControlUiComponent,
+    ScrollspyLayoutUiComponent,
   ],
 })
 export class SharedUiModule {}

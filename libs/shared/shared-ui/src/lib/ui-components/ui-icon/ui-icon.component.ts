@@ -9,6 +9,8 @@ import { Component, Input } from '@angular/core';
 export class UiIconComponent {
   @Input() public tooltip = '';
 
+  @Input() public text!: string;
+
   @Input() public icon = '';
 
   @Input() public color:
