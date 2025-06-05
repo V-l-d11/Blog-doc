@@ -41,9 +41,9 @@ export class InputFiledControlUiComponent
   extends UiFormControlValidateDirective
   implements OnInit
 {
-  @Input() type: 'text' | 'number' | 'email' | 'date' = 'text';
+  @Input() type: 'text' | 'number' | 'email' | 'date' | 'password' = 'text';
   @Input() name!: string;
-  @Input() placholder = '';
+  @Input() placholder?: string;
   @Input() readonly = false;
   @Input() autocomplete = false;
   @Input() customClassList: string[] = [];

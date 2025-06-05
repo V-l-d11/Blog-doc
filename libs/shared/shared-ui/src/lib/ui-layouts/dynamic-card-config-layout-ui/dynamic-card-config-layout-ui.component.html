@@ -1,0 +1,66 @@
+<div card-header *ngIf="configDynamicCard.header">
+  <ng-container
+    *ngTemplateOutlet="
+      blockRenderer;
+      context: { $implicit: configDynamicCard.header, section: 'header' }
+    "
+  />
+</div>
+
+<div card-body *ngIf="configDynamicCard.body">
+  <ng-container
+    *ngTemplateOutlet="
+      blockRenderer;
+      context: { $implicit: configDynamicCard.body, section: 'body' }
+    "
+  />
+</div>
+
+<div card-footer *ngIf="configDynamicCard.footer">
+  <ng-container
+    *ngTemplateOutlet="
+      blockRenderer;
+      context: { $implicit: configDynamicCard.footer, section: 'footer' }
+    "
+  />
+</div>
+
+<ng-template #blockRenderer let-blocks let-section="section">
+  <ng-container *ngFor="let item of blocks; trackBy: trackByFn">
+    <div [ngClass]="item.wrapperClass">
+      <ng-container [ngSwitch]="item.type">
+        <p *ngSwitchCase="'text'" [ngClass]="item.elementClass">
+          {{ item.value }}
+        </p>
+
+        <lib-input-filed-control-ui
+          *ngSwitchCase="'input'"
+          [name]="item.name"
+          [type]="item.inputType"
+          [placholder]="item.placeholder"
+          [customClassList]="item.elementClass ? [item.elementClass] : []"
+        ></lib-input-filed-control-ui>
+
+        <lib-select-control-ui
+          *ngSwitchCase="'select'"
+          [items]="item.items"
+          (selectionChange)="onSelectChange($event, item, section)"
+        ></lib-select-control-ui>
+
+        <lib-ui-button
+          *ngSwitchCase="'button'"
+          [buttonConfig]="item.buttonConfig"
+          (clicked)="onButtonClick($event, item, section)"
+        ></lib-ui-button>
+
+        <lib-input-checkbox-control-ui
+          *ngSwitchCase="'checkbox'"
+          [name]="item.name"
+          [colorSheme]="item.colorSheme"
+          (changed)="onCheckboxChange($event, item, section)"
+          [customClassList]="item.elementClass ? [item.elementClass] : []"
+        ></lib-input-checkbox-control-ui>
+      </ng-container>
+    </div>
+  </ng-container>
+</ng-template>
