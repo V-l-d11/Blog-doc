@@ -1,10 +1,12 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  EventEmitter,
   forwardRef,
   Input,
   OnInit,
   Optional,
+  Output,
   Self,
 } from '@angular/core';
 import { UiFormControlValidated } from '../../ui-core/abstract/ui-form-control-validated.abstract';
@@ -14,7 +16,6 @@ import {
   NgControl,
 } from '@angular/forms';
 import { UiControlChekboxSheme } from '../../ui-models/contoll-model/chekxbox-vm';
-import { UiValidatorFeedback } from '../../ui-models/ui-general-form-vm';
 import { UiFormControlValidateDirective } from '../../ui-directives/ui-control-form.directive';
 
 @Component({
@@ -41,11 +42,12 @@ export class InputCheckboxControlUiComponent
   implements OnInit
 {
   @Input() public name!: string;
-  @Input() public colorSheme: UiControlChekboxSheme =
+  @Input() public colorSheme?: UiControlChekboxSheme =
     UiControlChekboxSheme.PRIMARY;
 
-  @Input() public customClassList: string[] = [];
-  @Input() public customStyles = {};
+  @Input() public customClassList?: string[] = [];
+  @Input() public customStyles?: any;
+  @Output() public changed = new EventEmitter<boolean>();
 
   constructor(@Self() @Optional() override ngControl: NgControl) {
     super(ngControl);
@@ -56,4 +58,9 @@ export class InputCheckboxControlUiComponent
   }
 
   protected readonly UiControlCheckboxSheme = UiControlChekboxSheme;
+
+  onCheckboxChange(event: Event) {
+    const checked = (event.target as HTMLInputElement).checked;
+    this.changed.emit(checked);
+  }
 }
