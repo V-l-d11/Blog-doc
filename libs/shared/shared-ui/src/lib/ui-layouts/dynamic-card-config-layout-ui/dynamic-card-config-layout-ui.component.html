@@ -1,4 +1,8 @@
-<div card-header *ngIf="configDynamicCard.header">
+<div
+  card-header
+  *ngIf="configDynamicCard.header"
+  [ngStyle]="configDynamicCard.headerStyle"
+>
   <ng-container
     *ngTemplateOutlet="
       blockRenderer;
@@ -7,7 +11,11 @@
   />
 </div>
 
-<div card-body *ngIf="configDynamicCard.body">
+<div
+  card-body
+  *ngIf="configDynamicCard.body"
+  [ngStyle]="configDynamicCard.bodyStyle"
+>
   <ng-container
     *ngTemplateOutlet="
       blockRenderer;
@@ -16,7 +24,11 @@
   />
 </div>
 
-<div card-footer *ngIf="configDynamicCard.footer">
+<div
+  card-footer
+  *ngIf="configDynamicCard.footer"
+  [ngStyle]="configDynamicCard.footerStyle"
+>
   <ng-container
     *ngTemplateOutlet="
       blockRenderer;
