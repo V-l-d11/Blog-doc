@@ -62,5 +62,6 @@ import { UiListComponent } from './ui-components/ui-list/ui-list.component';
     DynamicCardConfigLayoutUiComponent,
     UiListComponent,
   ],
+  exports: [UiH1Component],
 })
 export class SharedUiModule {}
