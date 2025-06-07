@@ -29,6 +29,7 @@ import { NavSectionCardControlUiComponent } from './ui-controls/nav-section-card
 import { CardControlUiComponent } from './ui-controls/card-control-ui/card-control-ui.component';
 import { ScrollspyLayoutUiComponent } from './ui-layouts/scrollspy-layout-ui/scrollspy-layout-ui.component';
 import { DynamicCardConfigLayoutUiComponent } from './ui-layouts/dynamic-card-config-layout-ui/dynamic-card-config-layout-ui.component';
+import { UiListComponent } from './ui-components/ui-list/ui-list.component';
 @NgModule({
   imports: [CommonModule, FormsModule, ReactiveFormsModule, RouterModule],
   declarations: [
@@ -59,6 +60,8 @@ import { DynamicCardConfigLayoutUiComponent } from './ui-layouts/dynamic-card-co
     CardControlUiComponent,
     ScrollspyLayoutUiComponent,
     DynamicCardConfigLayoutUiComponent,
+    UiListComponent,
   ],
+  exports: [UiH1Component, UiParagrafComponent, UiH2Component],
 })
 export class SharedUiModule {}

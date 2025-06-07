@@ -1,11 +1,13 @@
+@use 'themes' as theme;
+
 .paragraf {
   font-size: 14px;
   font-weight: 400;
   font-style: normal;
 }
 .paragraf-light {
-  color: map-get($ui-colors, 'light-paragraf');
+  color: map-get(theme.$ui-colors, 'light-paragraf');
 }
 .paragraf-dark {
-  color: map-get($ui-colors, 'dark-paragraf');
+  color: map-get(theme.$ui-colors, 'dark-paragraf');
 }

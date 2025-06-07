@@ -5,7 +5,7 @@ import { UiChipStyle } from '../../ui-models/component-vm/ui-chip-vm';
   selector: 'lib-ui-chip',
   standalone: false,
   templateUrl: './ui-chip.component.html',
-  styleUrl: './ui-chip.component.css',
+  styleUrl: './ui-chip.component.scss',
 })
 export class UiChipComponent {
   @Input() public text = '';

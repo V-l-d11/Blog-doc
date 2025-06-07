@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, Input, input } from '@angular/core';
 
 @Component({
   selector: 'lib-ui-h2',
@@ -7,5 +7,6 @@ import { Component, input } from '@angular/core';
   standalone: false,
 })
 export class UiH2Component {
-  public text = input<string>();
+  @Input() text!: string;
+  @Input() public customClass!: string;
 }

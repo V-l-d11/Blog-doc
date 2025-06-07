@@ -1,5 +1,6 @@
 <p
   [class]="'paragraf ' + 'paragraf-' + style"
+  [ngClass]="customClass"
   [ngStyle]="{ 'font-size': fontSizeMap[size] }"
 >
   @for (part of textParts; track $index) { @if (!part.url) {

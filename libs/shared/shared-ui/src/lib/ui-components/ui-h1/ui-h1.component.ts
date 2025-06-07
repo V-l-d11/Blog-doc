@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'lib-ui-h1',
@@ -7,5 +7,6 @@ import { Component, input } from '@angular/core';
   standalone: false,
 })
 export class UiH1Component {
-  public text = input<string>();
+  @Input() text!: string;
+  @Input() customClass = '';
 }
