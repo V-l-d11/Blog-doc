@@ -1,13 +1,14 @@
 <div class="container">
   <lib-ui-h1
-    class="title animate-slide-up"
     [text]="'This is a new Knowlage Base in '"
     [customClass]="'title animate-slide-up'"
   ></lib-ui-h1>
-  <h1 class="title animate-slide-up">
-    This is a new Knowlage Base in <span class="highlight">Angular</span>
-  </h1>
-  <p class="subtitle animate-slide-left">We're trying to learn.</p>
+
+  <lib-ui-h2
+    [customClass]="'animate-slide-left'"
+    [text]="`We're trying to learn.`"
+  >
+  </lib-ui-h2>
 
   <div class="buttons">
     <button class="btn animate-rise delay-1">Become one of us.</button>

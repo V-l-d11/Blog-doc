@@ -10,6 +10,7 @@ export class UiParagrafComponent {
   @Input() public style: 'light' | 'dark' = 'dark';
   @Input() public size: 'large' | 'medium' | 'small' = 'medium';
   @Input() textParts: { text: string; url?: string }[] = [];
+  @Input() customClass!: string;
 
   fontSizeMap: Record<'large' | 'medium' | 'small', string> = {
     large: '24px',

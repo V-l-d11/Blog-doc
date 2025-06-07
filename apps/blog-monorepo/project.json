@@ -16,6 +16,10 @@
         "polyfills": ["zone.js"],
         "tsConfig": "apps/blog-monorepo/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
+        "stylePreprocessorOptions": {
+          "includePaths": ["apps/blog-monorepo/src/styles"]
+        },
+
         "assets": [
           {
             "glob": "**/*",
@@ -24,7 +28,8 @@
         ],
         "styles": [
           "apps/blog-monorepo/src/styles.scss",
-          "node_modules/bootstrap/dist/css/bootstrap.min.css"
+          "node_modules/bootstrap/dist/css/bootstrap.min.css",
+          "apps/blog-monorepo/src/styles/_themes.scss"
         ],
         "scripts": []
       },
