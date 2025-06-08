@@ -8,7 +8,7 @@ export interface UIButtonVM {
   colorStyle: UiButtonStyle;
   hasBorder: boolean;
   isSelected: boolean;
-  tooltip: string;
+  tooltip?: string;
   sizeStyle: UiButtonSizes;
   customStyles?: { [key: string]: string };
   customClasses?: string[];
@@ -18,6 +18,8 @@ export enum UiButtonStyle {
   Primary = 'primary',
   Secondry = 'secondary',
   Tertiary = 'tertiary',
+  Custom = 'custom',
+  CustomDark = 'custom-dark',
 }
 
 export enum UiButtonSizes {

@@ -62,6 +62,11 @@ import { UiListComponent } from './ui-components/ui-list/ui-list.component';
     DynamicCardConfigLayoutUiComponent,
     UiListComponent,
   ],
-  exports: [UiH1Component, UiParagrafComponent, UiH2Component],
+  exports: [
+    UiH1Component,
+    UiParagrafComponent,
+    UiH2Component,
+    UiButtonComponent,
+  ],
 })
 export class SharedUiModule {}

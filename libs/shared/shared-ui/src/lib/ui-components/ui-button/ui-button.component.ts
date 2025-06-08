@@ -15,6 +15,7 @@ export class UiButtonComponent {
   generateButtonClasses(): string[] {
     const config = this.buttonConfig;
 
+    console.log(config, 'Config');
     return [
       'ui-button',
       `size-${config.sizeStyle}`,
@@ -28,6 +29,7 @@ export class UiButtonComponent {
   }
 
   onClick(event: MouseEvent) {
+    console.log(event, 'Event');
     if (!this.buttonConfig.disabled) {
       this.clicked.emit(event);
     }

@@ -18,6 +18,9 @@
       "@blog-monorepo/main-blog-feature": [
         "libs/features/blog-features/main-blog-feature/src/index.ts"
       ],
+      "@blog-monorepo/shared-assets": [
+        "libs/shared/shared-assets/src/index.ts"
+      ],
       "@blog-monorepo/shared-ui": ["libs/shared/shared-ui/src/index.ts"],
       "@blog-monorepo/shell-blog-main-container": [
         "libs/shells/blog-container/shell-blog-main-container/src/index.ts"

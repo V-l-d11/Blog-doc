@@ -1,9 +1,10 @@
+@use 'themes' as theme;
 .footer {
   padding: 0 65px;
   height: 10%;
 }
 
 .primary-footer {
-  background-color: map-get($color, 'nav-blue');
-  color: map-get($color, 'gray100');
+  background-color: map-get(theme.$colors, 'nav-blue');
+  color: map-get(theme.$colors, 'gray100');
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PromoBlogSectionComponent } from '../promo-blog-section/promo-blog-section.component';
 
@@ -8,5 +8,6 @@ import { PromoBlogSectionComponent } from '../promo-blog-section/promo-blog-sect
   imports: [CommonModule, PromoBlogSectionComponent],
   templateUrl: './main-blog-feature.component.html',
   styleUrl: './main-blog-feature.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MainBlogFeatureComponent {}
