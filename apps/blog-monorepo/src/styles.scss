@@ -14,3 +14,11 @@ body {
 
   @extend .dark-theme;
 }
+body {
+  background-color: white;
+  transition: background-color 0.8s ease;
+}
+
+body.dark-background {
+  background-color: black;
+}

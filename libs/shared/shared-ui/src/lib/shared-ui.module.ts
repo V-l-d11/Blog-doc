@@ -31,6 +31,7 @@ import { ScrollspyLayoutUiComponent } from './ui-layouts/scrollspy-layout-ui/scr
 import { DynamicCardConfigLayoutUiComponent } from './ui-layouts/dynamic-card-config-layout-ui/dynamic-card-config-layout-ui.component';
 import { UiListComponent } from './ui-components/ui-list/ui-list.component';
 import { ScrollProgressDirective } from './ui-directives/scroll-progress-bar.directive';
+import { BackgroundTransitionDirective } from './ui-directives/background-transition.directive';
 @NgModule({
   imports: [CommonModule, FormsModule, ReactiveFormsModule, RouterModule],
   declarations: [
@@ -63,6 +64,7 @@ import { ScrollProgressDirective } from './ui-directives/scroll-progress-bar.dir
     DynamicCardConfigLayoutUiComponent,
     UiListComponent,
     ScrollProgressDirective,
+    BackgroundTransitionDirective,
   ],
   exports: [
     UiH1Component,
@@ -70,6 +72,7 @@ import { ScrollProgressDirective } from './ui-directives/scroll-progress-bar.dir
     UiH2Component,
     UiButtonComponent,
     ScrollProgressDirective,
+    BackgroundTransitionDirective,
   ],
 })
 export class SharedUiModule {}
