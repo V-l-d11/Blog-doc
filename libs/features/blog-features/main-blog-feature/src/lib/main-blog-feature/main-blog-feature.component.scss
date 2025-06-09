@@ -1,25 +1,26 @@
+@use 'animations';
+
 .container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   box-sizing: border-box;
+  position: relative;
+  padding-top: 50%;
 }
 .promo-section {
   margin-top: 10%;
 }
-
 .absolute {
   position: absolute;
   top: 50px !important;
-  inset: 0;
   justify-content: center;
   display: inline-flex;
   flex-direction: row;
 }
-
 .justify-center {
   justify-content: center;
 }
-
 .bg-shape1,
 .bg-shape2 {
   border-radius: 99999px;
@@ -27,31 +28,25 @@
   opacity: 0.5;
   filter: blur(90px);
 }
-
 .bg-shape1 {
   width: 400px;
   height: 400px;
   animation: one 6s infinite;
 }
-
 .bg-shape2 {
   width: 300px;
   height: 300px;
   animation: two 6s infinite;
 }
-
 .bg-primary {
   background-color: rgb(30, 0, 255);
 }
-
 .bg-teal {
   background-color: rgb(255, 72, 173);
 }
-
 .bg-purple {
   background-color: rgb(140, 0, 215);
 }
-
 .title {
   margin: 0 auto;
   top: 200px;
@@ -60,49 +55,11 @@
   font-size: 90px;
   position: relative;
 }
-
-@keyframes one {
-  0% {
-    left: 0px;
-    top: 0px;
-  }
-  25% {
-    left: -100px;
-    top: 70px;
-  }
-  50% {
-    left: 20px;
-    top: 150px;
-  }
-  75% {
-    left: 50px;
-    top: 100px;
-  }
-  100% {
-    left: 0px;
-    top: 0px;
-  }
-}
-
-@keyframes two {
-  0% {
-    left: 0px;
-    top: 0px;
-  }
-  25% {
-    left: 50px;
-    top: 10px;
-  }
-  50% {
-    left: 100px;
-    top: 50px;
-  }
-  75% {
-    left: 50px;
-    top: 100px;
-  }
-  100% {
-    left: 0px;
-    top: 0px;
-  }
+[libScrollProgress] {
+  background: red !important;
+  height: 6px !important;
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  z-index: 99999;
 }

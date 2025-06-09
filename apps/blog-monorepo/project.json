@@ -17,19 +17,27 @@
         "tsConfig": "apps/blog-monorepo/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "stylePreprocessorOptions": {
-          "includePaths": ["apps/blog-monorepo/src/styles"]
+          "includePaths": [
+            "apps/blog-monorepo/src/styles",
+            "libs/shared/shared-assets/src/lib/styless"
+          ]
         },
 
         "assets": [
           {
             "glob": "**/*",
             "input": "apps/blog-monorepo/public"
+          },
+          {
+            "input": "libs/shared/shared-assets/src/lib",
+            "glob": "**/*",
+            "output": "assets/shared"
           }
         ],
         "styles": [
           "apps/blog-monorepo/src/styles.scss",
           "node_modules/bootstrap/dist/css/bootstrap.min.css",
-          "apps/blog-monorepo/src/styles/_themes.scss"
+          "libs/shared/shared-assets/src/lib/styless/index.scss"
         ],
         "scripts": []
       },
