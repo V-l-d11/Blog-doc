@@ -5,13 +5,12 @@ html,
 body {
   margin: 0px;
   padding: 0px;
+  box-sizing: border-box;
   border: 0px;
-  vertical-align: baseline;
-  scroll-behavior: smooth;
 }
 
 body {
   height: 100%;
-  overflow: hidden;
+
   @extend .dark-theme;
 }
