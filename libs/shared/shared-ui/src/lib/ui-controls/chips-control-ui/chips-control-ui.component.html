@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="input-container">
+    <ul class="chip-bar" (click)="onChipBarClick()">
+      @for (item of items; track $index) {
+      <li class="chip">
+        <span class="chip-label">
+          {{ item }}
+        </span>
+        @if (removable) {
+        <span (click)="removeItem($index)" class="icon md-18 remove"
+          >clear</span
+        >
+        }
+      </li>
+      }
+      <li class="input-filed">
+        <input
+          #inputFiled
+          type="text"
+          name=""
+          class="input"
+          autocomplete="off"
+          [placeholder]="placholder"
+          (keydown)="onKeyDown($event, inputFiled.value)"
+        />
+      </li>
+    </ul>
+    <div class="action-btn">
+      <span class="icon clear ripple" (click)="removeAll()">close-icon</span>
+    </div>
+  </div>
+  <div class="chip-footer">
+    <span>Enter a ommad after writing</span>
+  </div>
+</div>
+@for (item of items; track $index) {
+<lib-ui-chip
+  [text]="item"
+  [style]="'primary'"
+  [styleParagraf]="'dark'"
+  [sizeParagraf]="'medium'"
+></lib-ui-chip>
+}

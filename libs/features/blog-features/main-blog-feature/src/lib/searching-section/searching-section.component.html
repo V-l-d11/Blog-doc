@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <div class="col d-flex justify-content-center">
+      <lib-ui-h3 [text]="'Find something that interests you.'"></lib-ui-h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col d-flex justify-content-center">
+      <input placeholder="Search" />
+    </div>
+  </div>
+</div>
+<lib-chips-control-ui
+  [(ngModel)]="items"
+  [removable]="true"
+></lib-chips-control-ui>

@@ -33,6 +33,7 @@ import { UiListComponent } from './ui-components/ui-list/ui-list.component';
 import { ScrollProgressDirective } from './ui-directives/scroll-progress-bar.directive';
 import { BackgroundTransitionDirective } from './ui-directives/background-transition.directive';
 import { HeaderConfigLayoutUiComponent } from './ui-layouts/header-config-layout-ui/header-config-layout-ui.component';
+import { ChipsControlUiComponent } from './ui-controls/chips-control-ui/chips-control-ui.component';
 @NgModule({
   imports: [CommonModule, FormsModule, ReactiveFormsModule, RouterModule],
   declarations: [
@@ -67,6 +68,7 @@ import { HeaderConfigLayoutUiComponent } from './ui-layouts/header-config-layout
     ScrollProgressDirective,
     BackgroundTransitionDirective,
     HeaderConfigLayoutUiComponent,
+    ChipsControlUiComponent,
   ],
   exports: [
     UiH1Component,
@@ -77,6 +79,8 @@ import { HeaderConfigLayoutUiComponent } from './ui-layouts/header-config-layout
     BackgroundTransitionDirective,
     HeaderControlUiComponent,
     HeaderConfigLayoutUiComponent,
+    UiH3Component,
+    ChipsControlUiComponent,
   ],
 })
 export class SharedUiModule {}

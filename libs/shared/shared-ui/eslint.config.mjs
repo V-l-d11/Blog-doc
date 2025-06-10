@@ -30,6 +30,7 @@ export default [
   {
     files: ['**/*.html'],
     rules: {
+      '@typescript-eslint/no-unsafe-function-type': 'off',
       '@angular-eslint/template/click-events-have-key-events': 'off',
       '@angular-eslint/template/interactive-supports-focus': 'off',
     },
