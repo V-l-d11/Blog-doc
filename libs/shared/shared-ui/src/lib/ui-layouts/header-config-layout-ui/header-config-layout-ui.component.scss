@@ -1,0 +1,15 @@
+.header-root {
+  margin-top: 1%;
+  margin-left: 5%;
+  margin-right: 5%;
+  padding: 0 2rem 0 2rem;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.header-hover-link {
+  cursor: pointer;
+  transition: color 0.2s ease;
+  &:hover {
+    color: #00ffd1 !important;
+  }
+}

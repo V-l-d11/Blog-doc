@@ -19,6 +19,10 @@ export const ShellRoutesBlogMainContainer: Route[] = [
           import('@blog-monorepo/main-blog-feature').then(
             (m) => m.MainBlogFeatureComponent
           ),
+        data: {
+          headerType: 'main',
+          isStickyHeader: true,
+        },
       },
     ],
   },

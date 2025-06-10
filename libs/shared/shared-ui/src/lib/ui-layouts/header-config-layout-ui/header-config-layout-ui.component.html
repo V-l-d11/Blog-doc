@@ -1,0 +1,81 @@
+<div
+  class="header-root"
+  [ngStyle]="{
+    display: headerUiConfig?.layout || 'flex',
+    justifyContent: headerUiConfig?.justifyContent || 'space-between',
+    alignItems: headerUiConfig?.alignItems || 'center',
+    backgroundColor: headerUiConfig?.backgroundColor || '#fff',
+    position: headerUiConfig?.sticky ? 'sticky' : null,
+    borderRadius: headerUiConfig?.borderRadius,
+     top: headerUiConfig?.sticky ? '1rem' : null,
+  }"
+  [ngClass]="headerUiConfig?.className"
+>
+  <div class="header-section left" *ngIf="getSection('left') as left">
+    <ng-container *ngFor="let item of left.items">
+      <ng-container
+        [ngTemplateOutlet]="renderItem"
+        [ngTemplateOutletContext]="{ item: item }"
+      ></ng-container>
+    </ng-container>
+  </div>
+  <div class="header-section center" *ngIf="getSection('center') as center">
+    <ng-container *ngFor="let item of center.items">
+      <ng-container
+        [ngTemplateOutlet]="renderItem"
+        [ngTemplateOutletContext]="{ item: item }"
+      ></ng-container>
+    </ng-container>
+  </div>
+  <div class="header-section right" *ngIf="getSection('right') as right">
+    <ng-container *ngFor="let item of right.items">
+      <ng-container
+        [ngTemplateOutlet]="renderItem"
+        [ngTemplateOutletContext]="{ item: item }"
+      ></ng-container>
+    </ng-container>
+  </div>
+</div>
+<ng-template #renderItem let-item="item">
+  <ng-container [ngSwitch]="item.type">
+    <span
+      *ngSwitchCase="'text'"
+      [ngClass]="item.styles?.classList"
+      [ngStyle]="item.styles"
+      (click)="handleAction(item.action)"
+    >
+      {{ item.text }}
+    </span>
+    <i
+      *ngSwitchCase="'icon'"
+      class="icon-{{ item.iconName }}"
+      [title]="item.tooltip"
+      [ngClass]="item.styles?.classList"
+      [ngStyle]="item.styles"
+      (click)="handleAction(item.action)"
+    ></i>
+    <!-- <lib-ui-button
+      *ngSwitchCase="'button'"
+      [buttonConfig]="generateUiButtonConfig(item)"
+    ></lib-ui-button> -->
+    <button
+      *ngSwitchCase="'button'"
+      [ngClass]="item.styles?.classList"
+      [ngStyle]="item.styles"
+      (click)="handleAction(item.action)"
+    >
+      {{ item.text }}
+    </button>
+    <img
+      *ngSwitchCase="'avatar'"
+      [src]="item.src"
+      [alt]="item.tooltip"
+      [ngClass]="item.styles?.classList"
+      [ngStyle]="item.styles"
+      (click)="handleAction(item.action)"
+    />
+    <ng-container *ngSwitchCase="'custom'">
+      <ng-container *ngTemplateOutlet="item.templateRef"></ng-container>
+    </ng-container>
+  </ng-container>
+</ng-template>

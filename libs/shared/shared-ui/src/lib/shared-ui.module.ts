@@ -32,6 +32,7 @@ import { DynamicCardConfigLayoutUiComponent } from './ui-layouts/dynamic-card-co
 import { UiListComponent } from './ui-components/ui-list/ui-list.component';
 import { ScrollProgressDirective } from './ui-directives/scroll-progress-bar.directive';
 import { BackgroundTransitionDirective } from './ui-directives/background-transition.directive';
+import { HeaderConfigLayoutUiComponent } from './ui-layouts/header-config-layout-ui/header-config-layout-ui.component';
 @NgModule({
   imports: [CommonModule, FormsModule, ReactiveFormsModule, RouterModule],
   declarations: [
@@ -65,6 +66,7 @@ import { BackgroundTransitionDirective } from './ui-directives/background-transi
     UiListComponent,
     ScrollProgressDirective,
     BackgroundTransitionDirective,
+    HeaderConfigLayoutUiComponent,
   ],
   exports: [
     UiH1Component,
@@ -73,6 +75,8 @@ import { BackgroundTransitionDirective } from './ui-directives/background-transi
     UiButtonComponent,
     ScrollProgressDirective,
     BackgroundTransitionDirective,
+    HeaderControlUiComponent,
+    HeaderConfigLayoutUiComponent,
   ],
 })
 export class SharedUiModule {}
