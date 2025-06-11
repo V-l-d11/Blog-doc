@@ -60,6 +60,7 @@ export type BlockElement =
 
 export interface CardSchema {
   shemeType: ShemeCardType;
+  cardClasses?: string[];
   header?: BlockElement[];
   headerStyle?: { [key: string]: string };
   body?: BlockElement[];
