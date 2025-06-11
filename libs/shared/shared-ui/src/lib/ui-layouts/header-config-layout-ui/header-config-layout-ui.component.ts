@@ -25,7 +25,7 @@ export class HeaderConfigLayoutUiComponent implements OnInit, OnDestroy {
     this.sub = this.bgState.isDarkMode$.subscribe((dark) => {
       this.isDark = dark;
       if (this.isDark) {
-        this.headerUiConfig.backgroundColor = 'rgba(255, 72, 173, 0.334)';
+        this.headerUiConfig.backgroundColor = '#e6646431';
       } else {
         this.headerUiConfig.backgroundColor = '#1F3B3B';
       }

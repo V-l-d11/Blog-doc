@@ -35,8 +35,8 @@
           }
         ],
         "styles": [
-          "apps/blog-monorepo/src/styles.scss",
           "node_modules/bootstrap/dist/css/bootstrap.min.css",
+          "apps/blog-monorepo/src/styles.scss",
           "libs/shared/shared-assets/src/lib/styless/index.scss"
         ],
         "scripts": []

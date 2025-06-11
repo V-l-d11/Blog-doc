@@ -8,8 +8,8 @@
         </span>
         @if (removable) {
         <span (click)="removeItem($index)" class="icon md-18 remove"
-          >clear</span
-        >
+          ><i class="fas fa-times"></i
+        ></span>
         }
       </li>
       }
@@ -26,18 +26,24 @@
       </li>
     </ul>
     <div class="action-btn">
-      <span class="icon clear ripple" (click)="removeAll()">close-icon</span>
+      <span class="icon clear ripple" (click)="removeAll()">
+        <i class="fas fa-times"></i
+      ></span>
     </div>
   </div>
   <div class="chip-footer">
     <span>Enter a ommad after writing</span>
   </div>
 </div>
-@for (item of items; track $index) {
-<lib-ui-chip
-  [text]="item"
-  [style]="'primary'"
-  [styleParagraf]="'dark'"
-  [sizeParagraf]="'medium'"
-></lib-ui-chip>
+@if(items.length){
+<div class="d-flex align-items-center flex-wrap gap-2 mt-4">
+  <lib-ui-paragraf
+    class="me-2"
+    [style]="'light'"
+    [textParts]="[{ text: 'Choosing:' }]"
+  ></lib-ui-paragraf>
+  @for (item of items; track $index) {
+  <lib-ui-chip [text]="item" [customClass]="'underscores'"></lib-ui-chip>
+  }
+</div>
 }

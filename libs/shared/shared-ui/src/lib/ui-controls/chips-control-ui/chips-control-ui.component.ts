@@ -76,12 +76,12 @@ export class ChipsControlUiComponent {
   }
 
   writeValue(value: any): void {
-    this.items = value;
+    this.items = Array.isArray(value) ? value : [];
     this.cd.markForCheck();
   }
 
   // eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
-  registerOnCnhage(fn: Function): void {
+  registerOnChange(fn: Function): void {
     this.onChnage = fn;
   }
 

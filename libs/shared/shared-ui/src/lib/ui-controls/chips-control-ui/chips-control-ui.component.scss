@@ -1,15 +1,17 @@
 :host {
   .container {
-    background-color: #fff;
-    padding: 0.5rem 0.75rem;
+    background-color: transparent;
+    padding: 10px 15px;
     border-radius: 0.438rem;
-    box-shadow: 0 0.375rem 0.75rem #e3e5e3;
+    box-shadow: 0 0.375rem 0.75rem #e3e5e31d;
+
     .input-container {
       display: flex;
-      align-items: flex-start;
+      align-items: baseline;
       justify-content: space-between;
-      border: 1px solid #918e8e;
-      border-radius: 0.438px;
+      border: 1px solid #918e8e57;
+      border-radius: 5px;
+      padding: 5px 8px;
     }
     .chip-bar {
       cursor: pointer;
@@ -30,12 +32,12 @@
         display: inline-flex;
         align-items: center;
         flex: 0 0 auto;
-        border-radius: 1.25rem;
+        border-radius: 1.15rem;
         color: #2a7856;
         border: 0.125rem solid #5da586;
         background-color: #d3f4ef;
         .remove {
-          margin-left: 0.313rem;
+          margin-left: 0.513rem;
         }
 
         .material-icons {
@@ -47,15 +49,19 @@
         }
       }
 
-      .input-field {
+      .input-filed {
         cursor: default;
         list-style: none;
         flex: 1 1 auto;
         display: inline-flex;
-        margin: 0.125rem;
+        margin-left: 2rem;
+        margin-right: 1.5rem;
         padding: 0.375rem 0.75rem;
-        border: 0.125rem solid transparent;
+        border-bottom: 0.5px solid #ffffff28;
         .input {
+          background-color: transparent;
+          color: #fff;
+
           outline: 0;
           border: 0;
           border-radius: 0;
@@ -67,8 +73,10 @@
     }
 
     .action-btn {
-      padding: 0.375rem 0;
+      padding: 10px 10px;
       .clear {
+        background-color: transparent;
+        color: #fff;
         cursor: pointer;
         padding: 0.438rem;
         border-radius: 0.438rem;

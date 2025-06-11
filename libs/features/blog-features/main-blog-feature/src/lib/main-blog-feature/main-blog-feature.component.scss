@@ -1,15 +1,23 @@
 @use 'animations';
 
-.container {
+.container-fluid {
+  padding: 0px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   box-sizing: border-box;
   position: relative;
   padding-top: 50%;
 }
 .promo-section {
+  display: flex;
+  justify-content: center;
   margin-top: 12%;
+}
+.serach-section {
+  width: 100%;
+  margin-top: 20%;
 }
 .absolute {
   position: absolute;

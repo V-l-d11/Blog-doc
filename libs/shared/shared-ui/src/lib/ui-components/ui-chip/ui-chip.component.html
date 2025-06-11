@@ -1,7 +1,8 @@
-<div [class]="'chip-container chip-' + getStyleClass()">
+<div [class]="'chip-container chip-' + getStyleClass() + '{customClass}'">
   <lib-ui-paragraf
     [textParts]="[{text}]"
     [size]="sizeParagraf"
     [style]="styleParagraf"
+    [customClass]="'underlined-custom'"
   ></lib-ui-paragraf>
 </div>
