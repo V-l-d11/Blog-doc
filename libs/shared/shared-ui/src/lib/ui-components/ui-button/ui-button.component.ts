@@ -1,4 +1,10 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+} from '@angular/core';
 import { UIButtonVM } from '../../ui-models/ui-button-vm';
 
 @Component({
@@ -6,6 +12,7 @@ import { UIButtonVM } from '../../ui-models/ui-button-vm';
   templateUrl: './ui-button.component.html',
   styleUrl: './ui-button.component.scss',
   standalone: false,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UiButtonComponent {
   @Input() public buttonConfig!: UIButtonVM;
@@ -14,8 +21,6 @@ export class UiButtonComponent {
 
   generateButtonClasses(): string[] {
     const config = this.buttonConfig;
-
-    console.log(config, 'Config');
     return [
       'ui-button',
       `size-${config.sizeStyle}`,

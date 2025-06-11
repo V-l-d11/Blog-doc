@@ -1,4 +1,4 @@
-@use 'themes' as theme;
+@use 'themes' as *;
 
 .paragraf {
   font-size: 14px;
@@ -6,8 +6,16 @@
   font-style: normal;
 }
 .paragraf-light {
-  color: map-get(theme.$ui-colors, 'light-paragraf');
+  color: map-get($ui-colors, 'primary-text') !important;
 }
 .paragraf-dark {
-  color: map-get(theme.$ui-colors, 'dark-paragraf');
+  color: map-get($ui-colors, 'dark-paragraf');
+}
+
+.underlined-custom {
+  color: #fff;
+  text-decoration: underline;
+  text-decoration-color: rgb(82, 82, 82);
+  text-decoration-style: solid;
+  text-underline-offset: 7px;
 }

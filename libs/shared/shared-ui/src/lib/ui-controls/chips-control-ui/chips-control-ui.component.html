@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="input-container">
+    <ul class="chip-bar" (click)="onChipBarClick()">
+      @for (item of items; track $index) {
+      <li class="chip">
+        <span class="chip-label">
+          {{ item }}
+        </span>
+        @if (removable) {
+        <span (click)="removeItem($index)" class="icon md-18 remove"
+          ><i class="fas fa-times"></i
+        ></span>
+        }
+      </li>
+      }
+      <li class="input-filed">
+        <input
+          #inputFiled
+          type="text"
+          name=""
+          class="input"
+          autocomplete="off"
+          [placeholder]="placholder"
+          (keydown)="onKeyDown($event, inputFiled.value)"
+        />
+      </li>
+    </ul>
+    <div class="action-btn">
+      <span class="icon clear ripple" (click)="removeAll()">
+        <i class="fas fa-times"></i
+      ></span>
+    </div>
+  </div>
+  <div class="chip-footer">
+    <span>Enter a ommad after writing</span>
+  </div>
+</div>
+@if(items.length){
+<div class="d-flex align-items-center flex-wrap gap-2 mt-4">
+  <lib-ui-paragraf
+    class="me-2"
+    [style]="'light'"
+    [textParts]="[{ text: 'Choosing:' }]"
+  ></lib-ui-paragraf>
+  @for (item of items; track $index) {
+  <lib-ui-chip [text]="item" [customClass]="'underscores'"></lib-ui-chip>
+  }
+</div>
+}

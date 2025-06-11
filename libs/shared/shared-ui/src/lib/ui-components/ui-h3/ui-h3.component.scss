@@ -1,0 +1,12 @@
+@use 'themes' as *;
+.lib-h1-primary {
+  color: map-get($ui-colors, 'primary-text');
+}
+
+.lib-h1-secondary {
+  color: $primary-darker;
+}
+
+.lib-h1-custom {
+  color: $primary-99;
+}

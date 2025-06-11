@@ -15,7 +15,8 @@
 }
 
 /* Global Colors */
-
+$liner-gradient-teal: rgb(255, 72, 173);
+$liner-gradinet-purple: rgb(140, 0, 215);
 $theme-white: #ffffff;
 $theme-light: #f8f8f8;
 $theme-dark: #112950;
@@ -48,7 +49,7 @@ $ui-colors: (
   'secondary': #474747,
   'accent': #344054,
   'accent-light': #a6b0e9,
-  'primary-text': #fff,
+  'primary-text': #ffffffba,
   'secondary-text': #fff,
   'accent-text': #fff,
   'accent-light-text': #fff,

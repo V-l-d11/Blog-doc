@@ -1,5 +1,4 @@
-/* Import Theme */
-@import 'styles/themes';
+@use 'themes';
 
 html,
 body {
@@ -11,8 +10,6 @@ body {
 
 body {
   height: 100%;
-
-  @extend .dark-theme;
 }
 body {
   background-color: white;
@@ -20,5 +17,7 @@ body {
 }
 
 body.dark-background {
-  background-color: black;
+  background-color: black !important;
+  //background: radial-gradient(#e6646460, #121212);
+  background: radial-gradient(#e6646431, #121212);
 }

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import {
   BlockElement,
   CardSchema,
@@ -10,6 +10,7 @@ import { UiSelectItem } from '../../ui-models/contoll-model/select-vm';
   standalone: false,
   templateUrl: './dynamic-card-config-layout-ui.component.html',
   styleUrl: './dynamic-card-config-layout-ui.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DynamicCardConfigLayoutUiComponent {
   @Input() configDynamicCard!: CardSchema;
@@ -17,13 +18,24 @@ export class DynamicCardConfigLayoutUiComponent {
   protected readonly trackByFn = (i: number, el: BlockElement) =>
     'name' in el && el.name ? el.name : i;
 
+  public get cardClasses(): string[] {
+    console.log(
+      this.configDynamicCard.shemeType,
+      ...(this.configDynamicCard.cardClasses || []),
+      'Hello Dynamic'
+    );
+    return [
+      this.configDynamicCard.shemeType,
+      ...(this.configDynamicCard.cardClasses || []),
+    ];
+  }
+
   onSelectChange(
     selected: UiSelectItem[],
     item: BlockElement,
     section: 'header' | 'body' | 'footer'
   ) {
     console.log('SELECT changed from section:', section);
-
     console.log('Selected:', selected);
   }
 
@@ -33,7 +45,6 @@ export class DynamicCardConfigLayoutUiComponent {
     section: 'header' | 'body' | 'footer'
   ) {
     console.log('BUTTON clicked from section:', section);
-
     console.log('Event:', event);
   }
 
@@ -43,7 +54,6 @@ export class DynamicCardConfigLayoutUiComponent {
     section: 'header' | 'body' | 'footer'
   ) {
     console.log(`CHECKBOX in section "${section}" changed`);
-
     console.log('Checked:', checked);
   }
 }

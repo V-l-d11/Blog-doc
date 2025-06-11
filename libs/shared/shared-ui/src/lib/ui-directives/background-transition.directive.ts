@@ -34,7 +34,7 @@ export class BackgroundTransitionDirective implements AfterViewInit {
   @HostListener('window:scroll', [])
   onWindowScroll() {
     const scrollY = window.scrollY || document.documentElement.scrollTop;
-    const offset = 400;
+    const offset = window.innerHeight * 0.1455;
     const entered =
       scrollY > this.sectionTop - offset &&
       scrollY < this.sectionTop + this.sectionHeight;

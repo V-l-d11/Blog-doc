@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col d-flex justify-content-center">
+      <lib-ui-h3
+        [color]="'primary'"
+        [text]="'Find something that interests you.'"
+      ></lib-ui-h3>
+    </div>
+  </div>
+  <div class="row row-inpt-seaction">
+    <div class="col">
+      <lib-chips-control-ui
+        class="chips-section"
+        [(ngModel)]="items"
+        [removable]="true"
+        [placholder]="'Enter a command...'"
+      ></lib-chips-control-ui>
+    </div>
+  </div>
+
+  <div class="row mt-4">
+    <div class="col">
+      <lib-dynamic-card-config-layout-ui
+        [configDynamicCard]="cardSheme"
+      ></lib-dynamic-card-config-layout-ui>
+    </div>
+  </div>
+</div>

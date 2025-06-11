@@ -1,2 +1,10 @@
+@switch (headerType) { @case ('main') {
+<lib-header-config-layout-ui
+  class="header-promo"
+  [headerUiConfig]="tursoHeaderConfig"
+></lib-header-config-layout-ui>
+} @default {
+<lib-header-control-ui [className]="'primary'"></lib-header-control-ui>
+} }
 <div libScrollProgress></div>
 <router-outlet></router-outlet>

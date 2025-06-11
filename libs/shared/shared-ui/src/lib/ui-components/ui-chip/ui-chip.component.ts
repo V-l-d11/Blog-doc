@@ -12,6 +12,7 @@ export class UiChipComponent {
   @Input() public style: UiChipStyle = 'accent';
   @Input() public styleParagraf: 'light' | 'dark' = 'dark';
   @Input() public sizeParagraf: 'large' | 'medium' | 'small' = 'medium';
+  @Input() public customClass: 'underscores' | 'underline' = 'underline';
 
   public getStyleClass = (): string => {
     return this.style;
