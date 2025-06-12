@@ -54,10 +54,7 @@
       [ngStyle]="item.styles"
       (click)="handleAction(item.action)"
     ></i>
-    <!-- <lib-ui-button
-      *ngSwitchCase="'button'"
-      [buttonConfig]="generateUiButtonConfig(item)"
-    ></lib-ui-button> -->
+
     <button
       *ngSwitchCase="'button'"
       [ngClass]="item.styles?.classList"

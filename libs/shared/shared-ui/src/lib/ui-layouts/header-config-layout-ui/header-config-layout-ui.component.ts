@@ -27,7 +27,7 @@ export class HeaderConfigLayoutUiComponent implements OnInit, OnDestroy {
       if (this.isDark) {
         this.headerUiConfig.backgroundColor = '#e6646431';
       } else {
-        this.headerUiConfig.backgroundColor = '#1F3B3B';
+        this.headerUiConfig.backgroundColor = '#000000af';
       }
     });
   }

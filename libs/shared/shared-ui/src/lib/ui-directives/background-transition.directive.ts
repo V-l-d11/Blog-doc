@@ -34,16 +34,14 @@ export class BackgroundTransitionDirective implements AfterViewInit {
   @HostListener('window:scroll', [])
   onWindowScroll() {
     const scrollY = window.scrollY || document.documentElement.scrollTop;
-    const offset = window.innerHeight * 0.1455;
-    const entered =
-      scrollY > this.sectionTop - offset &&
-      scrollY < this.sectionTop + this.sectionHeight;
-    if (entered) {
-      this.renderer.removeClass(document.body, 'dark-background');
-      this.bgState.setDarkMode(false);
-    } else {
+    const buffer = 250;
+    const sectionReached = scrollY >= this.sectionTop + buffer;
+    if (sectionReached) {
       this.renderer.addClass(document.body, 'dark-background');
       this.bgState.setDarkMode(true);
+    } else {
+      this.renderer.removeClass(document.body, 'dark-background');
+      this.bgState.setDarkMode(false);
     }
   }
 }

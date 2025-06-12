@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CardSchema, SharedUiModule } from '@blog-monorepo/shared-ui';
 import { FormsModule } from '@angular/forms';
-
+import { generateCardList } from '@blog-monorepo/shared-ui';
 @Component({
   selector: 'lib-searching-section',
   imports: [CommonModule, SharedUiModule, FormsModule],
@@ -11,40 +11,30 @@ import { FormsModule } from '@angular/forms';
 })
 export class SearchingSectionComponent {
   items = ['agular', 'react'];
+  public cardShemes: CardSchema[] = [];
 
-  public cardSheme: CardSchema = {
-    shemeType: 'primary',
-    cardClasses: ['card-light'],
-    header: [
+  constructor() {
+    this.cardShemes = generateCardList([
       {
-        type: 'text',
-        value: '/angular',
-        wrapperClass: 'card-badge orange-badge',
+        colorClass: 'bg-orange',
+        title: '/ngRx',
+        content: 'How to create a new structured',
       },
-    ],
-    headerStyle: {
-      class: '',
-    },
-    body: [
       {
-        type: 'text',
-        value: 'How to create a new structured',
-        wrapperClass: 'card-content',
-        elementClass: 'card-title',
+        colorClass: 'bg-blue',
+        title: '/Angular',
+        content: 'Build dynamic apps',
       },
-    ],
-    bodyStyle: {
-      class: 'card-wrapper card-primary',
-    },
-    footer: [
       {
-        type: 'text',
-        value: '',
-        wrapperClass: 'card-dot',
+        colorClass: 'bg-green',
+        title: '/RxJS',
+        content: 'Reactive programming made easy',
       },
-    ],
-    footerStyle: {
-      class: '',
-    },
-  };
+      {
+        colorClass: 'bg-purple',
+        title: '/NgRx',
+        content: 'State management like a pro',
+      },
+    ]);
+  }
 }

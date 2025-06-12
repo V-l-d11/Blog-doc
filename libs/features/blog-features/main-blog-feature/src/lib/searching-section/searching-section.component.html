@@ -19,9 +19,9 @@
   </div>
 
   <div class="row mt-4">
-    <div class="col">
+    <div class="col" *ngFor="let card of cardShemes">
       <lib-dynamic-card-config-layout-ui
-        [configDynamicCard]="cardSheme"
+        [configDynamicCard]="card"
       ></lib-dynamic-card-config-layout-ui>
     </div>
   </div>
