@@ -8,3 +8,11 @@ $borderRadius: 5px;
   border: $border;
   border-radius: $borderRadius;
 }
+
+.green-underlining {
+  padding: 5.5rem;
+  background-color: #3f2c1f;
+  color: #fff;
+  border: 2px solid #d47510;
+  box-shadow: drop-shadow(2px 2px 7px rgba(255, 124, 31, 0.25));
+}

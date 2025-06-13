@@ -14,6 +14,7 @@ import { BackgroundStateService } from '../ui-core/ui-services/background-state-
 export class BackgroundTransitionDirective implements AfterViewInit {
   private sectionTop = 0;
   private sectionHeight = 0;
+  private infoSectionTop = 0;
 
   constructor(
     private el: ElementRef,
@@ -27,7 +28,16 @@ export class BackgroundTransitionDirective implements AfterViewInit {
       const scrollTop = window.scrollY || document.documentElement.scrollTop;
       this.sectionTop = rect.top + scrollTop;
       this.sectionHeight = this.el.nativeElement.offsetHeight;
-      this.onWindowScroll();
+
+      const infoSection = document.querySelector(
+        'lib-info-section'
+      ) as HTMLElement;
+      if (infoSection) {
+        const infoRect = infoSection.getBoundingClientRect();
+        this.infoSectionTop = infoRect.top + scrollTop;
+      }
+
+      this.onWindowScroll(); // начальная проверка
     });
   }
 
@@ -35,11 +45,16 @@ export class BackgroundTransitionDirective implements AfterViewInit {
   onWindowScroll() {
     const scrollY = window.scrollY || document.documentElement.scrollTop;
     const buffer = 250;
-    const sectionReached = scrollY >= this.sectionTop + buffer;
-    if (sectionReached) {
+
+    const passedStart = scrollY >= this.sectionTop + buffer;
+    const passedEnd = scrollY >= this.infoSectionTop;
+
+    if (passedStart && !passedEnd) {
+      // в пределах секции — включаем тёмную тему
       this.renderer.addClass(document.body, 'dark-background');
       this.bgState.setDarkMode(true);
     } else {
+      // до начала или после info-section — возвращаем светлый фон
       this.renderer.removeClass(document.body, 'dark-background');
       this.bgState.setDarkMode(false);
     }

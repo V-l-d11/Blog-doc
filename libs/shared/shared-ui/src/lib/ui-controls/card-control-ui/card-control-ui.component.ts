@@ -9,4 +9,5 @@ import { Component, Input } from '@angular/core';
 export class CardControlUiComponent {
   @Input() public shemeType: 'primary' | 'dark' | 'light' | 'secondary' =
     'primary';
+  @Input() public customClass = '';
 }

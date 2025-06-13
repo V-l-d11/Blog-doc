@@ -1,4 +1,4 @@
-<div class="container" [class]="'card ' + shemeType">
+<div class="container" [ngClass]="['card', shemeType, customClass]">
   <div class="header-card">
     <ng-content select="[card-header]"></ng-content>
   </div>

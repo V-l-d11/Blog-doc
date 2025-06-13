@@ -82,6 +82,8 @@ import { ChipsControlUiComponent } from './ui-controls/chips-control-ui/chips-co
     UiH3Component,
     ChipsControlUiComponent,
     DynamicCardConfigLayoutUiComponent,
+    UiIconComponent,
+    CardControlUiComponent,
   ],
 })
 export class SharedUiModule {}
