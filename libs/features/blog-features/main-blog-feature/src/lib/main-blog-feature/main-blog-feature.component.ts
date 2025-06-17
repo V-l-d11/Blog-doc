@@ -4,6 +4,7 @@ import { PromoBlogSectionComponent } from '../promo-blog-section/promo-blog-sect
 import { SharedUiModule } from '@blog-monorepo/shared-ui';
 import { SearchingSectionComponent } from '../searching-section/searching-section.component';
 import { InfoSectionComponent } from '../info-section/info-section.component';
+import { RoadMapSectionComponent } from '../road-map-section/road-map-section.component';
 
 @Component({
   selector: 'lib-main-blog-feature',
@@ -14,6 +15,7 @@ import { InfoSectionComponent } from '../info-section/info-section.component';
     SharedUiModule,
     SearchingSectionComponent,
     InfoSectionComponent,
+    RoadMapSectionComponent,
   ],
   templateUrl: './main-blog-feature.component.html',
   styleUrl: './main-blog-feature.component.scss',

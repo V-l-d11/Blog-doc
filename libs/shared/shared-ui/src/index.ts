@@ -3,3 +3,4 @@ export * from './lib/ui-models/ui-button-vm';
 export * from './lib/ui-models/layout-wm/config-header-layout-ui';
 export * from './lib/ui-models/layout-wm/config-dynamic-card-layout-ui';
 export * from './lib/ui-models/generators-shemes/card-layout-generator-sheme';
+export * from './lib/ui-models/layout-wm/config-scroll-mapp-layout-ui';

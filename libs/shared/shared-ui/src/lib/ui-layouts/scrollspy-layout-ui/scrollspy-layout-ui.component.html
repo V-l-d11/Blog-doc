@@ -1,1 +1,25 @@
-<p>scrollspy-layout-ui works!</p>
+<div class="roadmap-container">
+  <div class="timeline">
+    @for (item of steps; track $index) {
+    <div
+      [ngClass]="item.position"
+      [ngStyle]="{
+        '--custom-bg': item.styles?.backgroundColor || '#fff',
+        '--custom-text': item.styles?.textColor || '#000'
+      }"
+      [style.animation-delay]="$index * 1 + 's'"
+      class="timeline-step"
+    >
+      @if (item.img) {
+      <img [src]="item.img" [alt]="item.img" />
+      }
+      <div class="text-box">
+        <h2>{{ item.title }}</h2>
+        <small>{{ item.date }}</small>
+        <p>{{ item.description }}</p>
+        <span class="arrow" [ngClass]="item.position + '-arrow'"></span>
+      </div>
+    </div>
+    }
+  </div>
+</div>

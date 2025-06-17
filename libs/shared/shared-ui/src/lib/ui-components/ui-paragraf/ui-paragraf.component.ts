@@ -13,8 +13,8 @@ export class UiParagrafComponent {
   @Input() customClass!: string;
 
   fontSizeMap: Record<'large' | 'medium' | 'small', string> = {
-    large: '24px',
-    medium: '16px',
-    small: '12px',
+    large: '28px',
+    medium: '20px',
+    small: '16px',
   };
 }

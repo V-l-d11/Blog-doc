@@ -3,7 +3,11 @@
 .paragraf {
   font-size: 14px;
   font-weight: 400;
+  max-width: 410px;
+  word-wrap: break-word;
   font-style: normal;
+  overflow-wrap: break-word;
+  white-space: normal;
 }
 .paragraf-light {
   color: map-get($ui-colors, 'primary-text') !important;
